@@ -1,0 +1,2199 @@
+
+
+Microchip MPLAB XC8 Assembler V2.36 build 20220127204148 
+                                                                                               Wed Sep 14 23:33:39 2022
+
+Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og9 
+     1                           	processor	12F629
+     2                           	pagewidth 120
+     3                           	opt	flic
+     4                           	psect	strings,global,class=STRING,delta=2,noexec
+     5                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     6                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1,noexec
+     7                           	psect	clrtext,global,class=CODE,delta=2
+     8                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     9                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,noexec
+    10                           	psect	maintext,global,class=CODE,split=1,delta=2
+    11                           	psect	text1,local,class=CODE,merge=1,delta=2
+    12                           	psect	text2,local,class=CODE,merge=1,delta=2
+    13                           	psect	text3,local,class=CODE,merge=1,delta=2
+    14                           	psect	text4,local,class=CODE,merge=1,delta=2
+    15                           	psect	text5,local,class=CODE,merge=1,delta=2
+    16                           	psect	text6,local,class=CODE,merge=1,delta=2
+    17                           	psect	idloc,global,abs,ovrld,class=IDLOC,space=5,delta=2,noexec
+    18                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    19                           	dabs	1,0x5E,2
+    20  0000                     
+    21                           ; Version 2.40
+    22                           ; Generated 06/12/2021 GMT
+    23                           ; 
+    24                           ; Copyright © 2021, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    25                           ; All rights reserved.
+    26                           ; 
+    27                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    28                           ; 
+    29                           ; Redistribution and use in source and binary forms, with or without modification, are
+    30                           ; permitted provided that the following conditions are met:
+    31                           ; 
+    32                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    33                           ;        conditions and the following disclaimer.
+    34                           ; 
+    35                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    36                           ;        of conditions and the following disclaimer in the documentation and/or other
+    37                           ;        materials provided with the distribution. Publication is not required when
+    38                           ;        this file is used in an embedded application.
+    39                           ; 
+    40                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    41                           ;        software without specific prior written permission.
+    42                           ; 
+    43                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    44                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    45                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    46                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    47                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    48                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    49                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    50                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    51                           ; 
+    52                           ; 
+    53                           ; Code-generator required, PIC12F629 Definitions
+    54                           ; 
+    55                           ; SFR Addresses
+    56  0000                     	;# 
+    57  0001                     	;# 
+    58  0002                     	;# 
+    59  0003                     	;# 
+    60  0004                     	;# 
+    61  0005                     	;# 
+    62  000A                     	;# 
+    63  000B                     	;# 
+    64  000C                     	;# 
+    65  000E                     	;# 
+    66  000E                     	;# 
+    67  000F                     	;# 
+    68  0010                     	;# 
+    69  0019                     	;# 
+    70  0081                     	;# 
+    71  0085                     	;# 
+    72  008C                     	;# 
+    73  008E                     	;# 
+    74  0090                     	;# 
+    75  0095                     	;# 
+    76  0096                     	;# 
+    77  0096                     	;# 
+    78  0099                     	;# 
+    79  009A                     	;# 
+    80  009A                     	;# 
+    81  009B                     	;# 
+    82  009C                     	;# 
+    83  009D                     	;# 
+    84  0000                     	;# 
+    85  0001                     	;# 
+    86  0002                     	;# 
+    87  0003                     	;# 
+    88  0004                     	;# 
+    89  0005                     	;# 
+    90  000A                     	;# 
+    91  000B                     	;# 
+    92  000C                     	;# 
+    93  000E                     	;# 
+    94  000E                     	;# 
+    95  000F                     	;# 
+    96  0010                     	;# 
+    97  0019                     	;# 
+    98  0081                     	;# 
+    99  0085                     	;# 
+   100  008C                     	;# 
+   101  008E                     	;# 
+   102  0090                     	;# 
+   103  0095                     	;# 
+   104  0096                     	;# 
+   105  0096                     	;# 
+   106  0099                     	;# 
+   107  009A                     	;# 
+   108  009A                     	;# 
+   109  009B                     	;# 
+   110  009C                     	;# 
+   111  009D                     	;# 
+   112                           
+   113                           	psect	strings
+   114  0001                     __pstrings:
+   115  0001                     stringtab:
+   116  0001                     __stringtab:
+   117                           
+   118                           ;	String table - string pointers are 1 byte each
+   119  0001  1BDF               	btfsc	btemp+1,7
+   120  0002  280B               	ljmp	stringcode
+   121  0003  1383               	bcf	3,7
+   122  0004  185F               	btfsc	btemp+1,0
+   123  0005  1783               	bsf	3,7
+   124  0006  0800               	movf	0,w
+   125  0007  0A84               	incf	4,f
+   126  0008  1903               	skipnz
+   127  0009  0ADF               	incf	btemp+1,f
+   128  000A  0008               	return
+   129  000B                     stringcode:
+   130  000B                     stringdir:
+   131  000B  3000               	movlw	high stringdir
+   132  000C  008A               	movwf	10
+   133  000D  0804               	movf	4,w
+   134  000E  0A84               	incf	4,f
+   135  000F  0782               	addwf	2,f
+   136  0010                     __stringbase:
+   137  0010  3400               	retlw	0
+   138  0011                     __end_of__stringtab:
+   139  0011                     _max7219_blank_map_dotmtx_half:
+   140  0011  3400               	retlw	0
+   141  0012  3400               	retlw	0
+   142  0013  3400               	retlw	0
+   143  0014  3400               	retlw	0
+   144  0015                     __end_of_max7219_blank_map_dotmtx_half:
+   145  0015                     _max7219_custom_map_dotmtx_half:
+   146  0015  347E               	retlw	126
+   147  0016  3481               	retlw	129
+   148  0017  3481               	retlw	129
+   149  0018  3442               	retlw	66
+   150  0019  3400               	retlw	0
+   151  001A  3488               	retlw	136
+   152  001B  34FB               	retlw	251
+   153  001C  3480               	retlw	128
+   154  001D  3464               	retlw	100
+   155  001E  3492               	retlw	146
+   156  001F  3492               	retlw	146
+   157  0020  34FC               	retlw	252
+   158  0021  3478               	retlw	120
+   159  0022  3484               	retlw	132
+   160  0023  3484               	retlw	132
+   161  0024  3478               	retlw	120
+   162  0025  34FF               	retlw	255
+   163  0026  3489               	retlw	137
+   164  0027  3489               	retlw	137
+   165  0028  3481               	retlw	129
+   166  0029  3460               	retlw	96
+   167  002A  3490               	retlw	144
+   168  002B  3490               	retlw	144
+   169  002C  34FE               	retlw	254
+   170  002D  3400               	retlw	0
+   171  002E  340F               	retlw	15
+   172  002F  34BF               	retlw	191
+   173  0030  3403               	retlw	3
+   174  0031  3430               	retlw	48
+   175  0032  3462               	retlw	98
+   176  0033  34E6               	retlw	230
+   177  0034  34E0               	retlw	224
+   178  0035  34E0               	retlw	224
+   179  0036  34E2               	retlw	226
+   180  0037  3466               	retlw	102
+   181  0038  3430               	retlw	48
+   182  0039  3400               	retlw	0
+   183  003A  3400               	retlw	0
+   184  003B  3444               	retlw	68
+   185  003C  3440               	retlw	64
+   186  003D  3440               	retlw	64
+   187  003E  3444               	retlw	68
+   188  003F  3400               	retlw	0
+   189  0040  3400               	retlw	0
+   190  0041  3400               	retlw	0
+   191  0042  3410               	retlw	16
+   192  0043  3426               	retlw	38
+   193  0044  3440               	retlw	64
+   194  0045  3440               	retlw	64
+   195  0046  3426               	retlw	38
+   196  0047  3410               	retlw	16
+   197  0048  3400               	retlw	0
+   198  0049  3400               	retlw	0
+   199  004A  3416               	retlw	22
+   200  004B  3426               	retlw	38
+   201  004C  3460               	retlw	96
+   202  004D  3460               	retlw	96
+   203  004E  3426               	retlw	38
+   204  004F  3416               	retlw	22
+   205  0050  3400               	retlw	0
+   206  0051  3426               	retlw	38
+   207  0052  3469               	retlw	105
+   208  0053  34E9               	retlw	233
+   209  0054  34E6               	retlw	230
+   210  0055  34E6               	retlw	230
+   211  0056  34E9               	retlw	233
+   212  0057  3469               	retlw	105
+   213  0058  3426               	retlw	38
+   214  0059                     __end_of_max7219_custom_map_dotmtx_half:
+   215  0059                     main@animation:
+   216  0059  3441               	retlw	65
+   217  005A  3442               	retlw	66
+   218  005B  3443               	retlw	67
+   219  005C  3444               	retlw	68
+   220  005D  3445               	retlw	69
+   221  005E  3446               	retlw	70
+   222  005F  3447               	retlw	71
+   223  0060  3448               	retlw	72
+   224  0061  3449               	retlw	73
+   225  0062  344C               	retlw	76
+   226  0063                     __end_ofmain@animation:
+   227  0019                     _CMCON	set	25
+   228  0005                     _GPIO	set	5
+   229  0085                     _TRISIO	set	133
+   230                           
+   231                           	psect	cinit
+   232  03F8                     start_initialization:	
+   233                           ; #config settings
+   234                           
+   235  03F8                     __initialization:
+   236                           
+   237                           ; Clear objects allocated to BANK0
+   238  03F8  1383               	bcf	3,7	;select IRP bank0
+   239  03F9  3046               	movlw	low __pbssBANK0
+   240  03FA  0084               	movwf	4
+   241  03FB  305A               	movlw	low (__pbssBANK0+20)
+   242  03FC  2094               	fcall	clear_ram0
+   243  03FD                     end_of_initialization:	
+   244                           ;End of C runtime variable initialization code
+   245                           
+   246  03FD                     __end_of__initialization:
+   247  03FD  0183               	clrf	3
+   248  03FE  2A0E               	ljmp	_main	;jump to C main() function
+   249                           
+   250                           	psect	bssBANK0
+   251  0046                     __pbssBANK0:
+   252  0046                     _loc_seq:
+   253  0046                     	ds	20
+   254                           
+   255                           	psect	clrtext
+   256  0094                     clear_ram0:	
+   257                           ;	Called with FSR containing the base address, and
+   258                           ;	W with the last address+1
+   259                           
+   260  0094  0064               	clrwdt	;clear the watchdog before getting into this loop
+   261  0095                     clrloop0:
+   262  0095  0180               	clrf	0	;clear RAM location pointed to by FSR
+   263  0096  0A84               	incf	4,f	;increment pointer
+   264  0097  0604               	xorwf	4,w	;XOR with final address
+   265  0098  1903               	btfsc	3,2	;have we reached the end yet?
+   266  0099  3400               	retlw	0	;all done for this memory range, return
+   267  009A  0604               	xorwf	4,w	;XOR again to restore value
+   268  009B  2895               	goto	clrloop0	;do the next byte
+   269                           
+   270                           	psect	cstackCOMMON
+   271  0000                     __pcstackCOMMON:
+   272  0000                     ??_max7219_init:
+   273  0000                     ??_max7219_show_frame:	
+   274                           ; 1 bytes @ 0x0
+   275                           
+   276                           
+   277                           	psect	cstackBANK0
+   278  0020                     __pcstackBANK0:	
+   279                           ; 1 bytes @ 0x0
+   280                           
+   281  0020                     ?_bb_spi_write_reg16:
+   282  0020                     ?_max7219_init:	
+   283                           ; 1 bytes @ 0x0
+   284                           
+   285  0020                     ?_max7219_show_frame:	
+   286                           ; 1 bytes @ 0x0
+   287                           
+   288  0020                     ?_max7219_prepare_string:	
+   289                           ; 1 bytes @ 0x0
+   290                           
+   291  0020                     ?_main:	
+   292                           ; 1 bytes @ 0x0
+   293                           
+   294  0020                     max7219_prepare_string@p:	
+   295                           ; 1 bytes @ 0x0
+   296                           
+   297  0020                     bb_spi_write_reg16@data:	
+   298                           ; 2 bytes @ 0x0
+   299                           
+   300                           
+   301                           ; 2 bytes @ 0x0
+   302  0020                     	ds	2
+   303  0022                     ??_bb_spi_write_reg16:
+   304  0022                     max7219_prepare_string@n:	
+   305                           ; 1 bytes @ 0x2
+   306                           
+   307                           
+   308                           ; 1 bytes @ 0x2
+   309  0022                     	ds	1
+   310  0023                     max7219_prepare_string@isFirst:
+   311  0023                     bb_spi_write_reg16@SPIData:	
+   312                           ; 1 bytes @ 0x3
+   313                           
+   314                           
+   315                           ; 2 bytes @ 0x3
+   316  0023                     	ds	1
+   317  0024                     ??_max7219_prepare_string:
+   318                           
+   319                           ; 1 bytes @ 0x4
+   320  0024                     	ds	1
+   321  0025                     bb_spi_write_reg16@SPICount:
+   322                           
+   323                           ; 1 bytes @ 0x5
+   324  0025                     	ds	1
+   325  0026                     ?_max7219_send_raw:
+   326  0026                     max7219_send_raw@pos:	
+   327                           ; 1 bytes @ 0x6
+   328                           
+   329                           
+   330                           ; 1 bytes @ 0x6
+   331  0026                     	ds	1
+   332  0027                     ??_max7219_send_raw:
+   333                           
+   334                           ; 1 bytes @ 0x7
+   335  0027                     	ds	4
+   336  002B                     max7219_prepare_string@offset:
+   337                           
+   338                           ; 1 bytes @ 0xB
+   339  002B                     	ds	1
+   340  002C                     max7219_prepare_string@i:
+   341                           
+   342                           ; 1 bytes @ 0xC
+   343  002C                     	ds	1
+   344  002D                     max7219_prepare_string@buff_pt:
+   345                           
+   346                           ; 1 bytes @ 0xD
+   347  002D                     	ds	1
+   348  002E                     max7219_send_raw@dig:
+   349                           
+   350                           ; 2 bytes @ 0xE
+   351  002E                     	ds	2
+   352  0030                     max7219_send_raw@data:
+   353                           
+   354                           ; 1 bytes @ 0x10
+   355  0030                     	ds	1
+   356  0031                     max7219_send_raw@dig_incr:
+   357                           
+   358                           ; 2 bytes @ 0x11
+   359  0031                     	ds	2
+   360  0033                     ?_loc_segment_scroll:
+   361  0033                     loc_segment_scroll@not_last:	
+   362                           ; 1 bytes @ 0x13
+   363                           
+   364                           
+   365                           ; 1 bytes @ 0x13
+   366  0033                     	ds	1
+   367  0034                     ??_loc_segment_scroll:
+   368                           
+   369                           ; 1 bytes @ 0x14
+   370  0034                     	ds	6
+   371  003A                     loc_segment_scroll@i:
+   372                           
+   373                           ; 1 bytes @ 0x1A
+   374  003A                     	ds	1
+   375  003B                     loc_segment_scroll@nchar:
+   376                           
+   377                           ; 1 bytes @ 0x1B
+   378  003B                     	ds	1
+   379  003C                     loc_segment_scroll@j:
+   380                           
+   381                           ; 1 bytes @ 0x1C
+   382  003C                     	ds	1
+   383  003D                     ??_main:
+   384                           
+   385                           ; 1 bytes @ 0x1D
+   386  003D                     	ds	3
+   387  0040                     main@sequence:
+   388                           
+   389                           ; 4 bytes @ 0x20
+   390  0040                     	ds	4
+   391  0044                     main@j:
+   392                           
+   393                           ; 1 bytes @ 0x24
+   394  0044                     	ds	1
+   395  0045                     main@i:
+   396                           
+   397                           ; 1 bytes @ 0x25
+   398  0045                     	ds	1
+   399                           
+   400                           	psect	maintext
+   401  020E                     __pmaintext:	
+   402 ;;
+   403 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+   404 ;;
+   405 ;; *************** function _main *****************
+   406 ;; Defined at:
+   407 ;;		line 327 in file "main.c"
+   408 ;; Parameters:    Size  Location     Type
+   409 ;;		None
+   410 ;; Auto vars:     Size  Location     Type
+   411 ;;  sequence        4   32[BANK0 ] unsigned char [4]
+   412 ;;  i               1   37[BANK0 ] unsigned char 
+   413 ;;  j               1   36[BANK0 ] unsigned char 
+   414 ;; Return value:  Size  Location     Type
+   415 ;;                  1    wreg      void 
+   416 ;; Registers used:
+   417 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   418 ;; Tracked objects:
+   419 ;;		On entry : B00/0
+   420 ;;		On exit  : 100/0
+   421 ;;		Unchanged: 0/0
+   422 ;; Data sizes:     COMMON   BANK0
+   423 ;;      Params:         0       0
+   424 ;;      Locals:         0       6
+   425 ;;      Temps:          0       3
+   426 ;;      Totals:         0       9
+   427 ;;Total ram usage:        9 bytes
+   428 ;; Hardware stack levels required when called: 3
+   429 ;; This function calls:
+   430 ;;		_bb_spi_write_reg16
+   431 ;;		_loc_segment_scroll
+   432 ;;		_max7219_init
+   433 ;;		_max7219_prepare_string
+   434 ;;		_max7219_show_frame
+   435 ;; This function is called by:
+   436 ;;		Startup code after reset
+   437 ;; This function uses a non-reentrant model
+   438 ;;
+   439                           
+   440  020E                     _main:	
+   441                           ;psect for function _main
+   442                           
+   443                           
+   444                           ;main.c: 329:   uint8_t sequence[4], i, j;;main.c: 330:   const uint8_t animation[10] = 
+      +                          "ABCDEFGHIL";;main.c: 331:     TRISIO = ((0x00 & 0x01) | (0x00 & 0x02) | (0x00 & 0x04) |
+      +                           (0x7F & 0x08) | (0x00 & 0x10)| (0x00 & 0x20)); GPIO = ((0x7F & 0x01) | (0x7F & 0x02) | 
+      +                          (0x00 & 0x04)| (0x7F & 0x08)| (0x7F & 0x10)| (0x7F & 0x20));;
+   445                           
+   446                           ;incstack = 0
+   447                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   448  020E  3008               	movlw	8
+   449  020F  1683               	bsf	3,5	;RP0=1, select bank1
+   450  0210  0085               	movwf	5	;volatile
+   451  0211  303B               	movlw	59
+   452  0212  1283               	bcf	3,5	;RP0=0, select bank0
+   453  0213  0085               	movwf	5	;volatile
+   454                           
+   455                           ;main.c: 333:   CMCON = 0xff;
+   456  0214  30FF               	movlw	255
+   457  0215  0099               	movwf	25	;volatile
+   458                           
+   459                           ;main.c: 335:   max7219_init();
+   460  0216  209C               	fcall	_max7219_init
+   461  0217                     l1151:
+   462                           
+   463                           ;main.c: 338:   {;main.c: 339:     sequence[0] = 'c';
+   464  0217  3063               	movlw	99
+   465  0218  00BD               	movwf	??_main
+   466  0219  083D               	movf	??_main,w
+   467  021A  00C0               	movwf	main@sequence
+   468                           
+   469                           ;main.c: 340:     sequence[1] = 'i';
+   470  021B  3069               	movlw	105
+   471  021C  00BD               	movwf	??_main
+   472  021D  083D               	movf	??_main,w
+   473  021E  00C1               	movwf	main@sequence+1
+   474                           
+   475                           ;main.c: 341:     sequence[2] = 'a';
+   476  021F  3061               	movlw	97
+   477  0220  00BD               	movwf	??_main
+   478  0221  083D               	movf	??_main,w
+   479  0222  00C2               	movwf	main@sequence+2
+   480                           
+   481                           ;main.c: 342:     sequence[3] = 'o';
+   482  0223  306F               	movlw	111
+   483  0224  00BD               	movwf	??_main
+   484  0225  083D               	movf	??_main,w
+   485  0226  00C3               	movwf	main@sequence+3
+   486                           
+   487                           ;main.c: 343:     max7219_prepare_string(sequence, 4, SEQ_FIRST);
+   488  0227  3040               	movlw	(low (main@sequence| 0))& (0+255)
+   489  0228  00A0               	movwf	max7219_prepare_string@p
+   490  0229  3000               	movlw	0
+   491  022A  00A1               	movwf	max7219_prepare_string@p+1
+   492  022B  3004               	movlw	4
+   493  022C  00BD               	movwf	??_main
+   494  022D  083D               	movf	??_main,w
+   495  022E  00A2               	movwf	max7219_prepare_string@n
+   496  022F  01A3               	clrf	max7219_prepare_string@isFirst
+   497  0230  0AA3               	incf	max7219_prepare_string@isFirst,f
+   498  0231  22F8               	fcall	_max7219_prepare_string
+   499                           
+   500                           ;main.c: 344:     loc_segment_scroll(4, CHAR_NOT_LAST);
+   501  0232  3002               	movlw	2
+   502  0233  00BD               	movwf	??_main
+   503  0234  083D               	movf	??_main,w
+   504  0235  00B3               	movwf	loc_segment_scroll@not_last
+   505  0236  3004               	movlw	4
+   506  0237  2127               	fcall	_loc_segment_scroll
+   507                           
+   508                           ;main.c: 345:     sequence[0] = 'G';
+   509  0238  3047               	movlw	71
+   510  0239  00BD               	movwf	??_main
+   511  023A  083D               	movf	??_main,w
+   512  023B  00C0               	movwf	main@sequence
+   513                           
+   514                           ;main.c: 346:     sequence[1] = 'H';
+   515  023C  3048               	movlw	72
+   516  023D  00BD               	movwf	??_main
+   517  023E  083D               	movf	??_main,w
+   518  023F  00C1               	movwf	main@sequence+1
+   519                           
+   520                           ;main.c: 347:     sequence[2] = 'I';
+   521  0240  3049               	movlw	73
+   522  0241  00BD               	movwf	??_main
+   523  0242  083D               	movf	??_main,w
+   524  0243  00C2               	movwf	main@sequence+2
+   525                           
+   526                           ;main.c: 348:     sequence[3] = 'L';
+   527  0244  304C               	movlw	76
+   528  0245  00BD               	movwf	??_main
+   529  0246  083D               	movf	??_main,w
+   530  0247  00C3               	movwf	main@sequence+3
+   531                           
+   532                           ;main.c: 349:     max7219_prepare_string(sequence, 4, SEQ_NOT_FIRST);
+   533  0248  3040               	movlw	(low (main@sequence| 0))& (0+255)
+   534  0249  00A0               	movwf	max7219_prepare_string@p
+   535  024A  3000               	movlw	0
+   536  024B  00A1               	movwf	max7219_prepare_string@p+1
+   537  024C  3004               	movlw	4
+   538  024D  00BD               	movwf	??_main
+   539  024E  083D               	movf	??_main,w
+   540  024F  00A2               	movwf	max7219_prepare_string@n
+   541  0250  01A3               	clrf	max7219_prepare_string@isFirst
+   542  0251  22F8               	fcall	_max7219_prepare_string
+   543                           
+   544                           ;main.c: 350:     loc_segment_scroll(4, CHAR_LAST);
+   545  0252  01B3               	clrf	loc_segment_scroll@not_last
+   546  0253  3004               	movlw	4
+   547  0254  2127               	fcall	_loc_segment_scroll
+   548                           
+   549                           ;main.c: 351:     _delay((unsigned long)((500)*(4000000/4000.0)));
+   550  0255  3003               	movlw	3
+   551  0256  00BF               	movwf	??_main+2
+   552  0257  308A               	movlw	138
+   553  0258  00BE               	movwf	??_main+1
+   554  0259  3055               	movlw	85
+   555  025A  00BD               	movwf	??_main
+   556  025B                     u657:
+   557  025B  0BBD               	decfsz	??_main,f
+   558  025C  2A5B               	goto	u657
+   559  025D  0BBE               	decfsz	??_main+1,f
+   560  025E  2A5B               	goto	u657
+   561  025F  0BBF               	decfsz	??_main+2,f
+   562  0260  2A5B               	goto	u657
+   563  0261  2A62               	nop2
+   564                           
+   565                           ;main.c: 352:     for (j = 0; j < 5; j++)
+   566  0262  1283               	bcf	3,5	;RP0=0, select bank0
+   567  0263  01C4               	clrf	main@j
+   568  0264                     l1183:
+   569                           
+   570                           ;main.c: 353:     {;main.c: 354:     for(i=0; i<=8;i=i+2)
+   571  0264  01C5               	clrf	main@i
+   572  0265                     l1189:
+   573                           
+   574                           ;main.c: 355:     {;main.c: 356:       sequence[0] = animation[i];
+   575  0265  0845               	movf	main@i,w
+   576  0266  3E49               	addlw	low ((main@animation-__stringbase)| (0+32768))
+   577  0267  0084               	movwf	4
+   578  0268  200B               	fcall	stringdir
+   579  0269  00BD               	movwf	??_main
+   580  026A  083D               	movf	??_main,w
+   581  026B  00C0               	movwf	main@sequence
+   582                           
+   583                           ;main.c: 357:       sequence[1] = animation[i+1];
+   584  026C  0845               	movf	main@i,w
+   585  026D  3E4A               	addlw	low (((main@animation-__stringbase)| (0+32768)+1))
+   586  026E  0084               	movwf	4
+   587  026F  200B               	fcall	stringdir
+   588  0270  00BD               	movwf	??_main
+   589  0271  083D               	movf	??_main,w
+   590  0272  00C1               	movwf	main@sequence+1
+   591                           
+   592                           ;main.c: 358:       max7219_prepare_string(sequence, 4, SEQ_FIRST);
+   593  0273  3040               	movlw	(low (main@sequence| 0))& (0+255)
+   594  0274  00A0               	movwf	max7219_prepare_string@p
+   595  0275  3000               	movlw	0
+   596  0276  00A1               	movwf	max7219_prepare_string@p+1
+   597  0277  3004               	movlw	4
+   598  0278  00BD               	movwf	??_main
+   599  0279  083D               	movf	??_main,w
+   600  027A  00A2               	movwf	max7219_prepare_string@n
+   601  027B  01A3               	clrf	max7219_prepare_string@isFirst
+   602  027C  0AA3               	incf	max7219_prepare_string@isFirst,f
+   603  027D  22F8               	fcall	_max7219_prepare_string
+   604                           
+   605                           ;main.c: 359:       max7219_show_frame();
+   606  027E  208C               	fcall	_max7219_show_frame
+   607                           
+   608                           ;main.c: 360:       _delay((unsigned long)((100)*(4000000/4000.0)));
+   609  027F  3082               	movlw	130
+   610  0280  00BE               	movwf	??_main+1
+   611  0281  30DD               	movlw	221
+   612  0282  00BD               	movwf	??_main
+   613  0283                     u667:
+   614  0283  0BBD               	decfsz	??_main,f
+   615  0284  2A83               	goto	u667
+   616  0285  0BBE               	decfsz	??_main+1,f
+   617  0286  2A83               	goto	u667
+   618  0287  2A88               	nop2
+   619                           
+   620                           ;main.c: 361:     }
+   621  0288  1283               	bcf	3,5	;RP0=0, select bank0
+   622  0289  0845               	movf	main@i,w
+   623  028A  3E02               	addlw	2
+   624  028B  00BD               	movwf	??_main
+   625  028C  083D               	movf	??_main,w
+   626  028D  00C5               	movwf	main@i
+   627  028E  3009               	movlw	9
+   628  028F  0245               	subwf	main@i,w
+   629  0290  1C03               	skipc
+   630  0291  2A65               	goto	l1189
+   631                           
+   632                           ;main.c: 362:     }
+   633  0292  3001               	movlw	1
+   634  0293  00BD               	movwf	??_main
+   635  0294  083D               	movf	??_main,w
+   636  0295  07C4               	addwf	main@j,f
+   637  0296  3005               	movlw	5
+   638  0297  0244               	subwf	main@j,w
+   639  0298  1C03               	skipc
+   640  0299  2A64               	goto	l1183
+   641                           
+   642                           ;main.c: 364:     max7219_prepare_string(animation, 4, SEQ_FIRST);
+   643  029A  3049               	movlw	(low ((main@animation-__stringbase)| (0+32768)))& (0+255)
+   644  029B  00A0               	movwf	max7219_prepare_string@p
+   645  029C  3080               	movlw	128
+   646  029D  00A1               	movwf	max7219_prepare_string@p+1
+   647  029E  3004               	movlw	4
+   648  029F  00BD               	movwf	??_main
+   649  02A0  083D               	movf	??_main,w
+   650  02A1  00A2               	movwf	max7219_prepare_string@n
+   651  02A2  01A3               	clrf	max7219_prepare_string@isFirst
+   652  02A3  0AA3               	incf	max7219_prepare_string@isFirst,f
+   653  02A4  22F8               	fcall	_max7219_prepare_string
+   654                           
+   655                           ;main.c: 365:     max7219_show_frame();
+   656  02A5  208C               	fcall	_max7219_show_frame
+   657  02A6                     l1215:
+   658                           
+   659                           ;main.c: 367:     {;main.c: 369:       for (j = 0; j < 20; j++)
+   660  02A6  01C4               	clrf	main@j
+   661  02A7                     l1221:
+   662                           
+   663                           ;main.c: 370:       {;main.c: 371:         for (i = 0; i < 0x0F; i++)
+   664  02A7  01C5               	clrf	main@i
+   665  02A8                     l1227:
+   666                           
+   667                           ;main.c: 372:         {;main.c: 373:           bb_spi_write_reg16((0x0A00 | ((uint16_t)i
+      +                           & 0x00FF)));
+   668  02A8  3000               	movlw	0
+   669  02A9  0445               	iorwf	main@i,w
+   670  02AA  00A0               	movwf	bb_spi_write_reg16@data
+   671  02AB  300A               	movlw	10
+   672  02AC  00A1               	movwf	bb_spi_write_reg16@data+1
+   673  02AD  20E8               	fcall	_bb_spi_write_reg16
+   674                           
+   675                           ;main.c: 374:           _delay((unsigned long)((10)*(4000000/4000.0)));
+   676  02AE  300D               	movlw	13
+   677  02AF  00BE               	movwf	??_main+1
+   678  02B0  30FB               	movlw	251
+   679  02B1  00BD               	movwf	??_main
+   680  02B2                     u677:
+   681  02B2  0BBD               	decfsz	??_main,f
+   682  02B3  2AB2               	goto	u677
+   683  02B4  0BBE               	decfsz	??_main+1,f
+   684  02B5  2AB2               	goto	u677
+   685  02B6  2AB7               	nop2
+   686                           
+   687                           ;main.c: 375:         }
+   688  02B7  3001               	movlw	1
+   689  02B8  1283               	bcf	3,5	;RP0=0, select bank0
+   690  02B9  00BD               	movwf	??_main
+   691  02BA  083D               	movf	??_main,w
+   692  02BB  07C5               	addwf	main@i,f
+   693  02BC  300F               	movlw	15
+   694  02BD  0245               	subwf	main@i,w
+   695  02BE  1C03               	skipc
+   696  02BF  2AA8               	goto	l1227
+   697                           
+   698                           ;main.c: 376:         for (i = 0x0f; i > 0x00; i--)
+   699  02C0  300F               	movlw	15
+   700  02C1  00BD               	movwf	??_main
+   701  02C2  083D               	movf	??_main,w
+   702  02C3  00C5               	movwf	main@i
+   703  02C4                     l1241:
+   704                           
+   705                           ;main.c: 377:         {;main.c: 378:           bb_spi_write_reg16((0x0A00 | ((uint16_t)i
+      +                           & 0x00FF)));
+   706  02C4  3000               	movlw	0
+   707  02C5  0445               	iorwf	main@i,w
+   708  02C6  00A0               	movwf	bb_spi_write_reg16@data
+   709  02C7  300A               	movlw	10
+   710  02C8  00A1               	movwf	bb_spi_write_reg16@data+1
+   711  02C9  20E8               	fcall	_bb_spi_write_reg16
+   712                           
+   713                           ;main.c: 379:           _delay((unsigned long)((10)*(4000000/4000.0)));
+   714  02CA  300D               	movlw	13
+   715  02CB  00BE               	movwf	??_main+1
+   716  02CC  30FB               	movlw	251
+   717  02CD  00BD               	movwf	??_main
+   718  02CE                     u687:
+   719  02CE  0BBD               	decfsz	??_main,f
+   720  02CF  2ACE               	goto	u687
+   721  02D0  0BBE               	decfsz	??_main+1,f
+   722  02D1  2ACE               	goto	u687
+   723  02D2  2AD3               	nop2
+   724                           
+   725                           ;main.c: 380:         }
+   726  02D3  3001               	movlw	1
+   727  02D4  1283               	bcf	3,5	;RP0=0, select bank0
+   728  02D5  02C5               	subwf	main@i,f
+   729  02D6  0845               	movf	main@i,w
+   730  02D7  1D03               	btfss	3,2
+   731  02D8  2AC4               	goto	l1241
+   732                           
+   733                           ;main.c: 381:       }
+   734  02D9  3001               	movlw	1
+   735  02DA  00BD               	movwf	??_main
+   736  02DB  083D               	movf	??_main,w
+   737  02DC  07C4               	addwf	main@j,f
+   738  02DD  3014               	movlw	20
+   739  02DE  0244               	subwf	main@j,w
+   740  02DF  1C03               	skipc
+   741  02E0  2AA7               	goto	l1221
+   742                           
+   743                           ;main.c: 383:       _delay((unsigned long)((1000)*(4000000/4000.0)));
+   744  02E1  3006               	movlw	6
+   745  02E2  00BF               	movwf	??_main+2
+   746  02E3  3013               	movlw	19
+   747  02E4  00BE               	movwf	??_main+1
+   748  02E5  30AD               	movlw	173
+   749  02E6  00BD               	movwf	??_main
+   750  02E7                     u697:
+   751  02E7  0BBD               	decfsz	??_main,f
+   752  02E8  2AE7               	goto	u697
+   753  02E9  0BBE               	decfsz	??_main+1,f
+   754  02EA  2AE7               	goto	u697
+   755  02EB  0BBF               	decfsz	??_main+2,f
+   756  02EC  2AE7               	goto	u697
+   757  02ED  2AEE               	nop2
+   758                           
+   759                           ;main.c: 390:     };
+   760  02EE  3001               	movlw	1
+   761  02EF  1283               	bcf	3,5	;RP0=0, select bank0
+   762  02F0  00BD               	movwf	??_main
+   763  02F1  083D               	movf	??_main,w
+   764  02F2  07C4               	addwf	main@j,f
+   765  02F3  3014               	movlw	20
+   766  02F4  0244               	subwf	main@j,w
+   767  02F5  1803               	btfsc	3,0
+   768  02F6  2A17               	goto	l1151
+   769  02F7  2AA6               	goto	l1215
+   770  02F8                     __end_of_main:
+   771                           
+   772                           	psect	text1
+   773  008C                     __ptext1:	
+   774 ;; *************** function _max7219_show_frame *****************
+   775 ;; Defined at:
+   776 ;;		line 166 in file "main.c"
+   777 ;; Parameters:    Size  Location     Type
+   778 ;;		None
+   779 ;; Auto vars:     Size  Location     Type
+   780 ;;		None
+   781 ;; Return value:  Size  Location     Type
+   782 ;;                  1    wreg      void 
+   783 ;; Registers used:
+   784 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   785 ;; Tracked objects:
+   786 ;;		On entry : 100/0
+   787 ;;		On exit  : 100/0
+   788 ;;		Unchanged: 0/0
+   789 ;; Data sizes:     COMMON   BANK0
+   790 ;;      Params:         0       0
+   791 ;;      Locals:         0       0
+   792 ;;      Temps:          0       0
+   793 ;;      Totals:         0       0
+   794 ;;Total ram usage:        0 bytes
+   795 ;; Hardware stack levels used: 1
+   796 ;; Hardware stack levels required when called: 2
+   797 ;; This function calls:
+   798 ;;		_max7219_send_raw
+   799 ;; This function is called by:
+   800 ;;		_main
+   801 ;; This function uses a non-reentrant model
+   802 ;;
+   803                           
+   804  008C                     _max7219_show_frame:	
+   805                           ;psect for function _max7219_show_frame
+   806                           
+   807                           
+   808                           ;main.c: 168:   max7219_send_raw(loc_seq[2], 0);
+   809                           
+   810                           ;incstack = 0
+   811                           ; Regs used in _max7219_show_frame: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   812  008C  01A6               	clrf	max7219_send_raw@pos
+   813  008D  304E               	movlw	(low ((_loc_seq| 0+8)))& (0+255)
+   814  008E  20B1               	fcall	_max7219_send_raw
+   815                           
+   816                           ;main.c: 169:   max7219_send_raw(loc_seq[3], 1);
+   817  008F  01A6               	clrf	max7219_send_raw@pos
+   818  0090  0AA6               	incf	max7219_send_raw@pos,f
+   819  0091  3052               	movlw	(low ((_loc_seq| 0+12)))& (0+255)
+   820  0092  20B1               	fcall	_max7219_send_raw
+   821  0093  0008               	return
+   822  0094                     __end_of_max7219_show_frame:
+   823                           
+   824                           	psect	text2
+   825  02F8                     __ptext2:	
+   826 ;; *************** function _max7219_prepare_string *****************
+   827 ;; Defined at:
+   828 ;;		line 172 in file "main.c"
+   829 ;; Parameters:    Size  Location     Type
+   830 ;;  p               2    0[BANK0 ] PTR unsigned char 
+   831 ;;		 -> main@animation(10), main@sequence(4), 
+   832 ;;  n               1    2[BANK0 ] unsigned char 
+   833 ;;  isFirst         1    3[BANK0 ] enum E685
+   834 ;; Auto vars:     Size  Location     Type
+   835 ;;  buff_pt         1   13[BANK0 ] PTR unsigned char 
+   836 ;;		 -> max7219_custom_map_dotmtx_half(68), 
+   837 ;;  i               1   12[BANK0 ] unsigned char 
+   838 ;;  offset          1   11[BANK0 ] unsigned char 
+   839 ;; Return value:  Size  Location     Type
+   840 ;;                  1    wreg      void 
+   841 ;; Registers used:
+   842 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath
+   843 ;; Tracked objects:
+   844 ;;		On entry : 100/0
+   845 ;;		On exit  : 100/0
+   846 ;;		Unchanged: 0/0
+   847 ;; Data sizes:     COMMON   BANK0
+   848 ;;      Params:         0       4
+   849 ;;      Locals:         0       3
+   850 ;;      Temps:          0       7
+   851 ;;      Totals:         0      14
+   852 ;;Total ram usage:       14 bytes
+   853 ;; Hardware stack levels used: 2
+   854 ;; This function calls:
+   855 ;;		Nothing
+   856 ;; This function is called by:
+   857 ;;		_main
+   858 ;; This function uses a non-reentrant model
+   859 ;;
+   860                           
+   861  02F8                     _max7219_prepare_string:	
+   862                           ;psect for function _max7219_prepare_string
+   863                           
+   864                           
+   865                           ;main.c: 172: void max7219_prepare_string(uint8_t *p, uint8_t n, sequence_t isFirst);mai
+      +                          n.c: 173: {;main.c: 175:   uint8_t i = 0, offset = 0;
+   866                           
+   867                           ;incstack = 0
+   868                           ; Regs used in _max7219_prepare_string: [wreg-fsr0h+status,2+status,0+btemp+1+pclath]
+   869  02F8  01AC               	clrf	max7219_prepare_string@i
+   870  02F9  01AB               	clrf	max7219_prepare_string@offset
+   871                           
+   872                           ;main.c: 176:   uint8_t *buff_pt;;main.c: 177:   if (isFirst == SEQ_FIRST || isFirst == 
+      +                          SEQ_NOT_FIRST)
+   873  02FA  0323               	decf	max7219_prepare_string@isFirst,w
+   874  02FB  1D03               	btfss	3,2
+   875  02FC  0823               	movf	max7219_prepare_string@isFirst,w
+   876  02FD  1D03               	btfss	3,2
+   877  02FE  2B08               	goto	l1059
+   878                           
+   879                           ;main.c: 178:   {;main.c: 181:     i = 2;
+   880  02FF  3002               	movlw	2
+   881  0300  00A4               	movwf	??_max7219_prepare_string
+   882  0301  0824               	movf	??_max7219_prepare_string,w
+   883  0302  00AC               	movwf	max7219_prepare_string@i
+   884                           
+   885                           ;main.c: 182:     offset = 2;
+   886  0303  3002               	movlw	2
+   887  0304  00A4               	movwf	??_max7219_prepare_string
+   888  0305  0824               	movf	??_max7219_prepare_string,w
+   889  0306  00AB               	movwf	max7219_prepare_string@offset
+   890                           
+   891                           ;main.c: 183:   }
+   892  0307  2B87               	goto	l1111
+   893  0308                     l1059:
+   894  0308  3002               	movlw	2
+   895  0309  0623               	xorwf	max7219_prepare_string@isFirst,w
+   896  030A  1D03               	btfss	3,2
+   897  030B  2B87               	goto	l1111
+   898                           
+   899                           ;main.c: 185:   {;main.c: 186:     i = 0;
+   900  030C  01AC               	clrf	max7219_prepare_string@i
+   901                           
+   902                           ;main.c: 187:     offset = 0;
+   903  030D  01AB               	clrf	max7219_prepare_string@offset
+   904                           
+   905                           ;main.c: 194:   for (; i < n + offset; i++)
+   906                           
+   907                           ;main.c: 188:   }
+   908  030E  2B87               	goto	l1111
+   909  030F                     l1063:
+   910                           
+   911                           ;main.c: 199:       buff_pt = max7219_custom_map_dotmtx_half[0];
+   912  030F  3005               	movlw	(low ((_max7219_custom_map_dotmtx_half-__stringbase)| (0+32768)))& (0+255)
+   913  0310  2B30               	goto	L16
+   914  0311                     l1065:	
+   915                           ;main.c: 200:       break;
+   916                           
+   917                           
+   918                           ;main.c: 202:       buff_pt = max7219_custom_map_dotmtx_half[1];
+   919  0311  3009               	movlw	(low (((_max7219_custom_map_dotmtx_half-__stringbase)| (0+32768)+4)))& (0+255)
+   920  0312  2B30               	goto	L16
+   921  0313                     l1067:	
+   922                           ;main.c: 203:       break;
+   923                           
+   924                           
+   925                           ;main.c: 205:       buff_pt = max7219_custom_map_dotmtx_half[2];
+   926  0313  300D               	movlw	(low (((_max7219_custom_map_dotmtx_half-__stringbase)| (0+32768)+8)))& (0+255)
+   927  0314  2B30               	goto	L16
+   928  0315                     l1069:	
+   929                           ;main.c: 206:       break;
+   930                           
+   931                           
+   932                           ;main.c: 208:       buff_pt = max7219_custom_map_dotmtx_half[3];
+   933  0315  3011               	movlw	(low (((_max7219_custom_map_dotmtx_half-__stringbase)| (0+32768)+12)))& (0+255)
+   934  0316  2B30               	goto	L16
+   935  0317                     l1071:	
+   936                           ;main.c: 209:       break;
+   937                           
+   938                           
+   939                           ;main.c: 211:       buff_pt = max7219_custom_map_dotmtx_half[4];
+   940  0317  3015               	movlw	(low (((_max7219_custom_map_dotmtx_half-__stringbase)| (0+32768)+16)))& (0+255)
+   941  0318  2B30               	goto	L16
+   942  0319                     l1073:	
+   943                           ;main.c: 212:       break;
+   944                           
+   945                           
+   946                           ;main.c: 214:       buff_pt = max7219_custom_map_dotmtx_half[5];
+   947  0319  3019               	movlw	(low (((_max7219_custom_map_dotmtx_half-__stringbase)| (0+32768)+20)))& (0+255)
+   948  031A  2B30               	goto	L16
+   949  031B                     l1075:	
+   950                           ;main.c: 215:       break;
+   951                           
+   952                           
+   953                           ;main.c: 217:       buff_pt = max7219_custom_map_dotmtx_half[6];
+   954  031B  301D               	movlw	(low (((_max7219_custom_map_dotmtx_half-__stringbase)| (0+32768)+24)))& (0+255)
+   955  031C  2B30               	goto	L16
+   956  031D                     l1077:	
+   957                           ;main.c: 218:       break;
+   958                           
+   959                           
+   960                           ;main.c: 220:       buff_pt = max7219_custom_map_dotmtx_half[7];
+   961  031D  3021               	movlw	(low (((_max7219_custom_map_dotmtx_half-__stringbase)| (0+32768)+28)))& (0+255)
+   962  031E  2B30               	goto	L16
+   963  031F                     l1079:	
+   964                           ;main.c: 221:       break;
+   965                           
+   966                           
+   967                           ;main.c: 223:       buff_pt = max7219_custom_map_dotmtx_half[8];
+   968  031F  3025               	movlw	(low (((_max7219_custom_map_dotmtx_half-__stringbase)| (0+32768)+32)))& (0+255)
+   969  0320  2B30               	goto	L16
+   970  0321                     l1081:	
+   971                           ;main.c: 224:       break;
+   972                           
+   973                           
+   974                           ;main.c: 226:       buff_pt = max7219_custom_map_dotmtx_half[9];
+   975  0321  3029               	movlw	(low (((_max7219_custom_map_dotmtx_half-__stringbase)| (0+32768)+36)))& (0+255)
+   976  0322  2B30               	goto	L16
+   977  0323                     l1083:	
+   978                           ;main.c: 227:       break;
+   979                           
+   980                           
+   981                           ;main.c: 229:       buff_pt = max7219_custom_map_dotmtx_half[10];
+   982  0323  302D               	movlw	(low (((_max7219_custom_map_dotmtx_half-__stringbase)| (0+32768)+40)))& (0+255)
+   983  0324  2B30               	goto	L16
+   984  0325                     l1085:	
+   985                           ;main.c: 230:       break;
+   986                           
+   987                           
+   988                           ;main.c: 232:       buff_pt = max7219_custom_map_dotmtx_half[11];
+   989  0325  3031               	movlw	(low (((_max7219_custom_map_dotmtx_half-__stringbase)| (0+32768)+44)))& (0+255)
+   990  0326  2B30               	goto	L16
+   991  0327                     l1087:	
+   992                           ;main.c: 233:       break;
+   993                           
+   994                           
+   995                           ;main.c: 235:       buff_pt = max7219_custom_map_dotmtx_half[12];
+   996  0327  3035               	movlw	(low (((_max7219_custom_map_dotmtx_half-__stringbase)| (0+32768)+48)))& (0+255)
+   997  0328  2B30               	goto	L16
+   998  0329                     l1089:	
+   999                           ;main.c: 236:       break;
+  1000                           
+  1001                           
+  1002                           ;main.c: 238:       buff_pt = max7219_custom_map_dotmtx_half[13];
+  1003  0329  3039               	movlw	(low (((_max7219_custom_map_dotmtx_half-__stringbase)| (0+32768)+52)))& (0+255)
+  1004  032A  2B30               	goto	L16
+  1005  032B                     l1091:	
+  1006                           ;main.c: 239:       break;
+  1007                           
+  1008                           
+  1009                           ;main.c: 241:       buff_pt = max7219_custom_map_dotmtx_half[14];
+  1010  032B  303D               	movlw	(low (((_max7219_custom_map_dotmtx_half-__stringbase)| (0+32768)+56)))& (0+255)
+  1011  032C  2B30               	goto	L16
+  1012  032D                     l1093:	
+  1013                           ;main.c: 242:       break;
+  1014                           
+  1015                           
+  1016                           ;main.c: 244:       buff_pt = max7219_custom_map_dotmtx_half[15];
+  1017  032D  3041               	movlw	(low (((_max7219_custom_map_dotmtx_half-__stringbase)| (0+32768)+60)))& (0+255)
+  1018  032E  2B30               	goto	L16
+  1019  032F                     l1095:	
+  1020                           ;main.c: 245:       break;
+  1021                           
+  1022                           
+  1023                           ;main.c: 247:       buff_pt = max7219_custom_map_dotmtx_half[16];
+  1024  032F  3045               	movlw	(low (((_max7219_custom_map_dotmtx_half-__stringbase)| (0+32768)+64)))& (0+255)
+  1025  0330                     L16:
+  1026  0330  00A4               	movwf	??_max7219_prepare_string
+  1027  0331  0824               	movf	??_max7219_prepare_string,w
+  1028  0332  00AD               	movwf	max7219_prepare_string@buff_pt
+  1029  0333                     l1101:	
+  1030                           ;main.c: 248:       break;
+  1031                           
+  1032                           
+  1033                           ;main.c: 253:     GPIO ^= (0x7F & 0x20);
+  1034  0333  3020               	movlw	32
+  1035  0334  00A4               	movwf	??_max7219_prepare_string
+  1036  0335  0824               	movf	??_max7219_prepare_string,w
+  1037  0336  0685               	xorwf	5,f	;volatile
+  1038                           
+  1039                           ;main.c: 262:     loc_seq[i][0] = buff_pt[0];
+  1040  0337  082D               	movf	max7219_prepare_string@buff_pt,w
+  1041  0338  0084               	movwf	4
+  1042  0339  200B               	fcall	stringdir
+  1043  033A  00A4               	movwf	??_max7219_prepare_string
+  1044  033B  082C               	movf	max7219_prepare_string@i,w
+  1045  033C  00A5               	movwf	??_max7219_prepare_string+1
+  1046  033D  3001               	movlw	1
+  1047  033E                     u415:
+  1048  033E  1003               	clrc
+  1049  033F  0DA5               	rlf	??_max7219_prepare_string+1,f
+  1050  0340  3EFF               	addlw	-1
+  1051  0341  1D03               	skipz
+  1052  0342  2B3E               	goto	u415
+  1053  0343  1003               	clrc
+  1054  0344  0D25               	rlf	??_max7219_prepare_string+1,w
+  1055  0345  3E46               	addlw	(low (_loc_seq| 0))& (0+255)
+  1056  0346  0084               	movwf	4
+  1057  0347  0824               	movf	??_max7219_prepare_string,w
+  1058  0348  1383               	bcf	3,7	;select IRP bank0
+  1059  0349  0080               	movwf	0
+  1060                           
+  1061                           ;main.c: 263:     loc_seq[i][1] = buff_pt[1];
+  1062  034A  082D               	movf	max7219_prepare_string@buff_pt,w
+  1063  034B  3E01               	addlw	1
+  1064  034C  0084               	movwf	4
+  1065  034D  200B               	fcall	stringdir
+  1066  034E  00A4               	movwf	??_max7219_prepare_string
+  1067  034F  082C               	movf	max7219_prepare_string@i,w
+  1068  0350  00A5               	movwf	??_max7219_prepare_string+1
+  1069  0351  3001               	movlw	1
+  1070  0352                     u425:
+  1071  0352  1003               	clrc
+  1072  0353  0DA5               	rlf	??_max7219_prepare_string+1,f
+  1073  0354  3EFF               	addlw	-1
+  1074  0355  1D03               	skipz
+  1075  0356  2B52               	goto	u425
+  1076  0357  1003               	clrc
+  1077  0358  0D25               	rlf	??_max7219_prepare_string+1,w
+  1078  0359  3E47               	addlw	(low ((_loc_seq| 0+1)))& (0+255)
+  1079  035A  0084               	movwf	4
+  1080  035B  0824               	movf	??_max7219_prepare_string,w
+  1081  035C  0080               	movwf	0
+  1082                           
+  1083                           ;main.c: 264:     loc_seq[i][2] = buff_pt[2];
+  1084  035D  082D               	movf	max7219_prepare_string@buff_pt,w
+  1085  035E  3E02               	addlw	2
+  1086  035F  0084               	movwf	4
+  1087  0360  200B               	fcall	stringdir
+  1088  0361  00A4               	movwf	??_max7219_prepare_string
+  1089  0362  082C               	movf	max7219_prepare_string@i,w
+  1090  0363  00A5               	movwf	??_max7219_prepare_string+1
+  1091  0364  3001               	movlw	1
+  1092  0365                     u435:
+  1093  0365  1003               	clrc
+  1094  0366  0DA5               	rlf	??_max7219_prepare_string+1,f
+  1095  0367  3EFF               	addlw	-1
+  1096  0368  1D03               	skipz
+  1097  0369  2B65               	goto	u435
+  1098  036A  1003               	clrc
+  1099  036B  0D25               	rlf	??_max7219_prepare_string+1,w
+  1100  036C  3E48               	addlw	(low ((_loc_seq| 0+2)))& (0+255)
+  1101  036D  0084               	movwf	4
+  1102  036E  0824               	movf	??_max7219_prepare_string,w
+  1103  036F  0080               	movwf	0
+  1104                           
+  1105                           ;main.c: 265:     loc_seq[i][3] = buff_pt[3];
+  1106  0370  082D               	movf	max7219_prepare_string@buff_pt,w
+  1107  0371  3E03               	addlw	3
+  1108  0372  0084               	movwf	4
+  1109  0373  200B               	fcall	stringdir
+  1110  0374  00A4               	movwf	??_max7219_prepare_string
+  1111  0375  082C               	movf	max7219_prepare_string@i,w
+  1112  0376  00A5               	movwf	??_max7219_prepare_string+1
+  1113  0377  3001               	movlw	1
+  1114  0378                     u445:
+  1115  0378  1003               	clrc
+  1116  0379  0DA5               	rlf	??_max7219_prepare_string+1,f
+  1117  037A  3EFF               	addlw	-1
+  1118  037B  1D03               	skipz
+  1119  037C  2B78               	goto	u445
+  1120  037D  1003               	clrc
+  1121  037E  0D25               	rlf	??_max7219_prepare_string+1,w
+  1122  037F  3E49               	addlw	(low ((_loc_seq| 0+3)))& (0+255)
+  1123  0380  0084               	movwf	4
+  1124  0381  0824               	movf	??_max7219_prepare_string,w
+  1125  0382  0080               	movwf	0
+  1126                           
+  1127                           ;main.c: 266:   }
+  1128  0383  3001               	movlw	1
+  1129  0384  00A4               	movwf	??_max7219_prepare_string
+  1130  0385  0824               	movf	??_max7219_prepare_string,w
+  1131  0386  07AC               	addwf	max7219_prepare_string@i,f
+  1132  0387                     l1111:
+  1133  0387  0822               	movf	max7219_prepare_string@n,w
+  1134  0388  072B               	addwf	max7219_prepare_string@offset,w
+  1135  0389  00A4               	movwf	??_max7219_prepare_string
+  1136  038A  01A5               	clrf	??_max7219_prepare_string+1
+  1137  038B  0DA5               	rlf	??_max7219_prepare_string+1,f
+  1138  038C  0825               	movf	??_max7219_prepare_string+1,w
+  1139  038D  3A80               	xorlw	128
+  1140  038E  3C80               	sublw	128
+  1141  038F  1D03               	skipz
+  1142  0390  2B93               	goto	u455
+  1143  0391  0824               	movf	??_max7219_prepare_string,w
+  1144  0392  022C               	subwf	max7219_prepare_string@i,w
+  1145  0393                     u455:
+  1146  0393  1803               	btfsc	3,0
+  1147  0394  2BEB               	goto	l1113
+  1148  0395  1283               	bcf	3,5	;RP0=0, select bank0
+  1149  0396  0821               	movf	max7219_prepare_string@p+1,w
+  1150  0397  00A5               	movwf	??_max7219_prepare_string+1
+  1151  0398  082B               	movf	max7219_prepare_string@offset,w
+  1152  0399  0220               	subwf	max7219_prepare_string@p,w
+  1153  039A  00A4               	movwf	??_max7219_prepare_string
+  1154  039B  1C03               	skipc
+  1155  039C  03A5               	decf	??_max7219_prepare_string+1,f
+  1156  039D  082C               	movf	max7219_prepare_string@i,w
+  1157  039E  0724               	addwf	??_max7219_prepare_string,w
+  1158  039F  00A7               	movwf	??_max7219_prepare_string+3
+  1159  03A0  0825               	movf	??_max7219_prepare_string+1,w
+  1160  03A1  00A6               	movwf	??_max7219_prepare_string+2
+  1161  03A2  1803               	skipnc
+  1162  03A3  0AA6               	incf	??_max7219_prepare_string+2,f
+  1163  03A4  1BAC               	btfsc	max7219_prepare_string@i,7
+  1164  03A5  03A6               	decf	??_max7219_prepare_string+2,f
+  1165  03A6  1283               	bcf	3,5	;RP0=0, select bank0
+  1166  03A7  0826               	movf	??_max7219_prepare_string+2,w
+  1167  03A8  00A8               	movwf	??_max7219_prepare_string+4
+  1168  03A9  0828               	movf	??_max7219_prepare_string+4,w
+  1169  03AA  00DF               	movwf	95
+  1170  03AB  0827               	movf	??_max7219_prepare_string+3,w
+  1171  03AC  0084               	movwf	4
+  1172  03AD  2001               	fcall	stringtab
+  1173  03AE  00A9               	movwf	??_max7219_prepare_string+5
+  1174  03AF  01AA               	clrf	??_max7219_prepare_string+6
+  1175                           
+  1176                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+  1177                           ; Switch size 1, requested type "simple"
+  1178                           ; Number of cases is 1, Range of values is 0 to 0
+  1179                           ; switch strategies available:
+  1180                           ; Name         Instructions Cycles
+  1181                           ; simple_byte            4     3 (average)
+  1182                           ; direct_byte            7     6 (fixed)
+  1183                           ; jumptable            260     6 (fixed)
+  1184                           ;	Chosen strategy is simple_byte
+  1185  03B0  082A               	movf	??_max7219_prepare_string+6,w
+  1186  03B1  3A00               	xorlw	0	; case 0
+  1187  03B2  1903               	skipnz
+  1188  03B3  2BB5               	goto	l1279
+  1189  03B4  2B33               	goto	l1101
+  1190  03B5                     l1279:
+  1191                           
+  1192                           ; Switch size 1, requested type "simple"
+  1193                           ; Number of cases is 17, Range of values is 33 to 111
+  1194                           ; switch strategies available:
+  1195                           ; Name         Instructions Cycles
+  1196                           ; simple_byte           52    27 (average)
+  1197                           ; direct_byte           88     9 (fixed)
+  1198                           ; jumptable            263     9 (fixed)
+  1199                           ;	Chosen strategy is simple_byte
+  1200  03B5  0829               	movf	??_max7219_prepare_string+5,w
+  1201  03B6  3A21               	xorlw	33	; case 33
+  1202  03B7  1903               	skipnz
+  1203  03B8  2B1B               	goto	l1075
+  1204  03B9  3A60               	xorlw	96	; case 65
+  1205  03BA  1903               	skipnz
+  1206  03BB  2B1D               	goto	l1077
+  1207  03BC  3A03               	xorlw	3	; case 66
+  1208  03BD  1903               	skipnz
+  1209  03BE  2B1F               	goto	l1079
+  1210  03BF  3A01               	xorlw	1	; case 67
+  1211  03C0  1903               	skipnz
+  1212  03C1  2B21               	goto	l1081
+  1213  03C2  3A07               	xorlw	7	; case 68
+  1214  03C3  1903               	skipnz
+  1215  03C4  2B23               	goto	l1083
+  1216  03C5  3A01               	xorlw	1	; case 69
+  1217  03C6  1903               	skipnz
+  1218  03C7  2B25               	goto	l1085
+  1219  03C8  3A03               	xorlw	3	; case 70
+  1220  03C9  1903               	skipnz
+  1221  03CA  2B27               	goto	l1087
+  1222  03CB  3A01               	xorlw	1	; case 71
+  1223  03CC  1903               	skipnz
+  1224  03CD  2B29               	goto	l1089
+  1225  03CE  3A0F               	xorlw	15	; case 72
+  1226  03CF  1903               	skipnz
+  1227  03D0  2B2B               	goto	l1091
+  1228  03D1  3A01               	xorlw	1	; case 73
+  1229  03D2  1903               	skipnz
+  1230  03D3  2B2D               	goto	l1093
+  1231  03D4  3A05               	xorlw	5	; case 76
+  1232  03D5  1903               	skipnz
+  1233  03D6  2B2F               	goto	l1095
+  1234  03D7  3A2D               	xorlw	45	; case 97
+  1235  03D8  1903               	skipnz
+  1236  03D9  2B13               	goto	l1067
+  1237  03DA  3A02               	xorlw	2	; case 99
+  1238  03DB  1903               	skipnz
+  1239  03DC  2B0F               	goto	l1063
+  1240  03DD  3A07               	xorlw	7	; case 100
+  1241  03DE  1903               	skipnz
+  1242  03DF  2B19               	goto	l1073
+  1243  03E0  3A01               	xorlw	1	; case 101
+  1244  03E1  1903               	skipnz
+  1245  03E2  2B17               	goto	l1071
+  1246  03E3  3A0C               	xorlw	12	; case 105
+  1247  03E4  1903               	skipnz
+  1248  03E5  2B11               	goto	l1065
+  1249  03E6  3A06               	xorlw	6	; case 111
+  1250  03E7  1903               	skipnz
+  1251  03E8  2B15               	goto	l1069
+  1252  03E9  2B33               	goto	l1101
+  1253  03EA  2B33               	goto	l1101
+  1254  03EB                     l1113:
+  1255                           
+  1256                           ;main.c: 269:   if (isFirst == SEQ_FIRST)
+  1257  03EB  1283               	bcf	3,5	;RP0=0, select bank0
+  1258  03EC  0323               	decf	max7219_prepare_string@isFirst,w
+  1259  03ED  1D03               	btfss	3,2
+  1260  03EE  0008               	return
+  1261                           
+  1262                           ;main.c: 270:   {;main.c: 271:     loc_seq[0][0] = 0;
+  1263  03EF  01C6               	clrf	_loc_seq
+  1264                           
+  1265                           ;main.c: 272:     loc_seq[0][1] = 0;
+  1266  03F0  01C7               	clrf	_loc_seq+1
+  1267                           
+  1268                           ;main.c: 273:     loc_seq[0][2] = 0;
+  1269  03F1  01C8               	clrf	_loc_seq+2
+  1270                           
+  1271                           ;main.c: 274:     loc_seq[0][3] = 0;
+  1272  03F2  01C9               	clrf	_loc_seq+3
+  1273                           
+  1274                           ;main.c: 275:     loc_seq[1][0] = 0;
+  1275  03F3  01CA               	clrf	_loc_seq+4
+  1276                           
+  1277                           ;main.c: 276:     loc_seq[1][1] = 0;
+  1278  03F4  01CB               	clrf	_loc_seq+5
+  1279                           
+  1280                           ;main.c: 277:     loc_seq[1][2] = 0;
+  1281  03F5  01CC               	clrf	_loc_seq+6
+  1282                           
+  1283                           ;main.c: 278:     loc_seq[1][3] = 0;
+  1284  03F6  01CD               	clrf	_loc_seq+7
+  1285  03F7  0008               	return
+  1286  03F8                     __end_of_max7219_prepare_string:
+  1287                           
+  1288                           	psect	text3
+  1289  009C                     __ptext3:	
+  1290 ;; *************** function _max7219_init *****************
+  1291 ;; Defined at:
+  1292 ;;		line 150 in file "main.c"
+  1293 ;; Parameters:    Size  Location     Type
+  1294 ;;		None
+  1295 ;; Auto vars:     Size  Location     Type
+  1296 ;;  data            2    0        unsigned int 
+  1297 ;; Return value:  Size  Location     Type
+  1298 ;;                  1    wreg      void 
+  1299 ;; Registers used:
+  1300 ;;		wreg, status,2, status,0, pclath, cstack
+  1301 ;; Tracked objects:
+  1302 ;;		On entry : B00/0
+  1303 ;;		On exit  : 100/0
+  1304 ;;		Unchanged: 0/0
+  1305 ;; Data sizes:     COMMON   BANK0
+  1306 ;;      Params:         0       0
+  1307 ;;      Locals:         0       0
+  1308 ;;      Temps:          0       0
+  1309 ;;      Totals:         0       0
+  1310 ;;Total ram usage:        0 bytes
+  1311 ;; Hardware stack levels used: 1
+  1312 ;; Hardware stack levels required when called: 1
+  1313 ;; This function calls:
+  1314 ;;		_bb_spi_write_reg16
+  1315 ;; This function is called by:
+  1316 ;;		_main
+  1317 ;; This function uses a non-reentrant model
+  1318 ;;
+  1319                           
+  1320  009C                     _max7219_init:	
+  1321                           ;psect for function _max7219_init
+  1322                           
+  1323                           
+  1324                           ;main.c: 160:   bb_spi_write_reg16((0x0C00 | 0x0001));
+  1325                           
+  1326                           ;incstack = 0
+  1327                           ; Regs used in _max7219_init: [wreg+status,2+status,0+pclath+cstack]
+  1328  009C  3001               	movlw	1
+  1329  009D  00A0               	movwf	bb_spi_write_reg16@data
+  1330  009E  300C               	movlw	12
+  1331  009F  00A1               	movwf	bb_spi_write_reg16@data+1
+  1332  00A0  20E8               	fcall	_bb_spi_write_reg16
+  1333                           
+  1334                           ;main.c: 161:   bb_spi_write_reg16((0x0A00 | ((uint16_t)0x00 & 0x00FF)));
+  1335  00A1  3000               	movlw	0
+  1336  00A2  00A0               	movwf	bb_spi_write_reg16@data
+  1337  00A3  300A               	movlw	10
+  1338  00A4  00A1               	movwf	bb_spi_write_reg16@data+1
+  1339  00A5  20E8               	fcall	_bb_spi_write_reg16
+  1340                           
+  1341                           ;main.c: 162:   bb_spi_write_reg16((0x0B00 | 0x0007));
+  1342  00A6  3007               	movlw	7
+  1343  00A7  00A0               	movwf	bb_spi_write_reg16@data
+  1344  00A8  300B               	movlw	11
+  1345  00A9  00A1               	movwf	bb_spi_write_reg16@data+1
+  1346  00AA  20E8               	fcall	_bb_spi_write_reg16
+  1347                           
+  1348                           ;main.c: 163:   bb_spi_write_reg16((0x0900 | 0x0000));
+  1349  00AB  3000               	movlw	0
+  1350  00AC  00A0               	movwf	bb_spi_write_reg16@data
+  1351  00AD  3009               	movlw	9
+  1352  00AE  00A1               	movwf	bb_spi_write_reg16@data+1
+  1353  00AF  20E8               	fcall	_bb_spi_write_reg16
+  1354  00B0  0008               	return
+  1355  00B1                     __end_of_max7219_init:
+  1356                           
+  1357                           	psect	text4
+  1358  0127                     __ptext4:	
+  1359 ;; *************** function _loc_segment_scroll *****************
+  1360 ;; Defined at:
+  1361 ;;		line 282 in file "main.c"
+  1362 ;; Parameters:    Size  Location     Type
+  1363 ;;  nchar           1    wreg     unsigned char 
+  1364 ;;  not_last        1   19[BANK0 ] enum E690
+  1365 ;; Auto vars:     Size  Location     Type
+  1366 ;;  nchar           1   27[BANK0 ] unsigned char 
+  1367 ;;  j               1   28[BANK0 ] unsigned char 
+  1368 ;;  i               1   26[BANK0 ] unsigned char 
+  1369 ;; Return value:  Size  Location     Type
+  1370 ;;                  1    wreg      void 
+  1371 ;; Registers used:
+  1372 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1373 ;; Tracked objects:
+  1374 ;;		On entry : 100/0
+  1375 ;;		On exit  : 100/0
+  1376 ;;		Unchanged: 0/0
+  1377 ;; Data sizes:     COMMON   BANK0
+  1378 ;;      Params:         0       1
+  1379 ;;      Locals:         0       3
+  1380 ;;      Temps:          0       6
+  1381 ;;      Totals:         0      10
+  1382 ;;Total ram usage:       10 bytes
+  1383 ;; Hardware stack levels used: 1
+  1384 ;; Hardware stack levels required when called: 2
+  1385 ;; This function calls:
+  1386 ;;		_max7219_send_raw
+  1387 ;; This function is called by:
+  1388 ;;		_main
+  1389 ;; This function uses a non-reentrant model
+  1390 ;;
+  1391                           
+  1392  0127                     _loc_segment_scroll:	
+  1393                           ;psect for function _loc_segment_scroll
+  1394                           
+  1395                           
+  1396                           ;incstack = 0
+  1397                           ; Regs used in _loc_segment_scroll: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1398                           ;loc_segment_scroll@nchar stored from wreg
+  1399  0127  00BB               	movwf	loc_segment_scroll@nchar
+  1400                           
+  1401                           ;main.c: 282: static void loc_segment_scroll(uint8_t nchar, order_char_t not_last);main.
+      +                          c: 283: {;main.c: 284:   for (uint8_t i = 0; i < (4 * (nchar + not_last)) + 1; i++)
+  1402  0128  01BA               	clrf	loc_segment_scroll@i
+  1403  0129                     l1145:
+  1404  0129  083B               	movf	loc_segment_scroll@nchar,w
+  1405  012A  0733               	addwf	loc_segment_scroll@not_last,w
+  1406  012B  00B4               	movwf	??_loc_segment_scroll
+  1407  012C  01B5               	clrf	??_loc_segment_scroll+1
+  1408  012D  0DB5               	rlf	??_loc_segment_scroll+1,f
+  1409  012E  1003               	clrc
+  1410  012F  0DB4               	rlf	??_loc_segment_scroll,f
+  1411  0130  0DB5               	rlf	??_loc_segment_scroll+1,f
+  1412  0131  1003               	clrc
+  1413  0132  0DB4               	rlf	??_loc_segment_scroll,f
+  1414  0133  0DB5               	rlf	??_loc_segment_scroll+1,f
+  1415  0134  0834               	movf	??_loc_segment_scroll,w
+  1416  0135  3E01               	addlw	1
+  1417  0136  00B6               	movwf	??_loc_segment_scroll+2
+  1418  0137  0835               	movf	??_loc_segment_scroll+1,w
+  1419  0138  1803               	skipnc
+  1420  0139  3E01               	addlw	1
+  1421  013A  3E00               	addlw	0
+  1422  013B  00B7               	movwf	??_loc_segment_scroll+3
+  1423  013C  083A               	movf	loc_segment_scroll@i,w
+  1424  013D  00B8               	movwf	??_loc_segment_scroll+4
+  1425  013E  01B9               	clrf	??_loc_segment_scroll+5
+  1426  013F  0837               	movf	??_loc_segment_scroll+3,w
+  1427  0140  0239               	subwf	??_loc_segment_scroll+5,w
+  1428  0141  1D03               	skipz
+  1429  0142  2945               	goto	u585
+  1430  0143  0836               	movf	??_loc_segment_scroll+2,w
+  1431  0144  0238               	subwf	??_loc_segment_scroll+4,w
+  1432  0145                     u585:
+  1433  0145  1803               	btfsc	3,0
+  1434  0146  0008               	return
+  1435                           
+  1436                           ;main.c: 285:   {;main.c: 286:     max7219_send_raw(loc_seq[0], 0);
+  1437  0147  01A6               	clrf	max7219_send_raw@pos
+  1438  0148  3046               	movlw	(low (_loc_seq| 0))& (0+255)
+  1439  0149  20B1               	fcall	_max7219_send_raw
+  1440                           
+  1441                           ;main.c: 287:     max7219_send_raw(loc_seq[1], 1);
+  1442  014A  01A6               	clrf	max7219_send_raw@pos
+  1443  014B  0AA6               	incf	max7219_send_raw@pos,f
+  1444  014C  304A               	movlw	(low ((_loc_seq| 0+4)))& (0+255)
+  1445  014D  20B1               	fcall	_max7219_send_raw
+  1446                           
+  1447                           ;main.c: 290:     for (uint8_t j = 0; j < nchar + 2; j++)
+  1448  014E  01BC               	clrf	loc_segment_scroll@j
+  1449  014F                     l1137:
+  1450  014F  083B               	movf	loc_segment_scroll@nchar,w
+  1451  0150  3E02               	addlw	2
+  1452  0151  00B4               	movwf	??_loc_segment_scroll
+  1453  0152  3000               	movlw	0
+  1454  0153  1803               	skipnc
+  1455  0154  3001               	movlw	1
+  1456  0155  00B5               	movwf	??_loc_segment_scroll+1
+  1457  0156  0835               	movf	??_loc_segment_scroll+1,w
+  1458  0157  3A80               	xorlw	128
+  1459  0158  3C80               	sublw	128
+  1460  0159  1D03               	skipz
+  1461  015A  295D               	goto	u575
+  1462  015B  0834               	movf	??_loc_segment_scroll,w
+  1463  015C  023C               	subwf	loc_segment_scroll@j,w
+  1464  015D                     u575:
+  1465  015D  1803               	btfsc	3,0
+  1466  015E  29FA               	goto	l1139
+  1467                           
+  1468                           ;main.c: 291:     {;main.c: 292:       loc_seq[j][0] = loc_seq[j][1];
+  1469  015F  1283               	bcf	3,5	;RP0=0, select bank0
+  1470  0160  083C               	movf	loc_segment_scroll@j,w
+  1471  0161  00B4               	movwf	??_loc_segment_scroll
+  1472  0162  3001               	movlw	1
+  1473  0163                     u475:
+  1474  0163  1003               	clrc
+  1475  0164  0DB4               	rlf	??_loc_segment_scroll,f
+  1476  0165  3EFF               	addlw	-1
+  1477  0166  1D03               	skipz
+  1478  0167  2963               	goto	u475
+  1479  0168  1003               	clrc
+  1480  0169  0D34               	rlf	??_loc_segment_scroll,w
+  1481  016A  3E47               	addlw	(low ((_loc_seq| 0+1)))& (0+255)
+  1482  016B  0084               	movwf	4
+  1483  016C  1383               	bcf	3,7	;select IRP bank0
+  1484  016D  0800               	movf	0,w
+  1485  016E  00B5               	movwf	??_loc_segment_scroll+1
+  1486  016F  083C               	movf	loc_segment_scroll@j,w
+  1487  0170  00B6               	movwf	??_loc_segment_scroll+2
+  1488  0171  3001               	movlw	1
+  1489  0172                     u485:
+  1490  0172  1003               	clrc
+  1491  0173  0DB6               	rlf	??_loc_segment_scroll+2,f
+  1492  0174  3EFF               	addlw	-1
+  1493  0175  1D03               	skipz
+  1494  0176  2972               	goto	u485
+  1495  0177  1003               	clrc
+  1496  0178  0D36               	rlf	??_loc_segment_scroll+2,w
+  1497  0179  3E46               	addlw	(low (_loc_seq| 0))& (0+255)
+  1498  017A  0084               	movwf	4
+  1499  017B  0835               	movf	??_loc_segment_scroll+1,w
+  1500  017C  0080               	movwf	0
+  1501                           
+  1502                           ;main.c: 293:       loc_seq[j][1] = loc_seq[j][2];
+  1503  017D  083C               	movf	loc_segment_scroll@j,w
+  1504  017E  00B4               	movwf	??_loc_segment_scroll
+  1505  017F  3001               	movlw	1
+  1506  0180                     u495:
+  1507  0180  1003               	clrc
+  1508  0181  0DB4               	rlf	??_loc_segment_scroll,f
+  1509  0182  3EFF               	addlw	-1
+  1510  0183  1D03               	skipz
+  1511  0184  2980               	goto	u495
+  1512  0185  1003               	clrc
+  1513  0186  0D34               	rlf	??_loc_segment_scroll,w
+  1514  0187  3E48               	addlw	(low ((_loc_seq| 0+2)))& (0+255)
+  1515  0188  0084               	movwf	4
+  1516  0189  0800               	movf	0,w
+  1517  018A  00B5               	movwf	??_loc_segment_scroll+1
+  1518  018B  083C               	movf	loc_segment_scroll@j,w
+  1519  018C  00B6               	movwf	??_loc_segment_scroll+2
+  1520  018D  3001               	movlw	1
+  1521  018E                     u505:
+  1522  018E  1003               	clrc
+  1523  018F  0DB6               	rlf	??_loc_segment_scroll+2,f
+  1524  0190  3EFF               	addlw	-1
+  1525  0191  1D03               	skipz
+  1526  0192  298E               	goto	u505
+  1527  0193  1003               	clrc
+  1528  0194  0D36               	rlf	??_loc_segment_scroll+2,w
+  1529  0195  3E47               	addlw	(low ((_loc_seq| 0+1)))& (0+255)
+  1530  0196  0084               	movwf	4
+  1531  0197  0835               	movf	??_loc_segment_scroll+1,w
+  1532  0198  0080               	movwf	0
+  1533                           
+  1534                           ;main.c: 294:       loc_seq[j][2] = loc_seq[j][3];
+  1535  0199  083C               	movf	loc_segment_scroll@j,w
+  1536  019A  00B4               	movwf	??_loc_segment_scroll
+  1537  019B  3001               	movlw	1
+  1538  019C                     u515:
+  1539  019C  1003               	clrc
+  1540  019D  0DB4               	rlf	??_loc_segment_scroll,f
+  1541  019E  3EFF               	addlw	-1
+  1542  019F  1D03               	skipz
+  1543  01A0  299C               	goto	u515
+  1544  01A1  1003               	clrc
+  1545  01A2  0D34               	rlf	??_loc_segment_scroll,w
+  1546  01A3  3E49               	addlw	(low ((_loc_seq| 0+3)))& (0+255)
+  1547  01A4  0084               	movwf	4
+  1548  01A5  0800               	movf	0,w
+  1549  01A6  00B5               	movwf	??_loc_segment_scroll+1
+  1550  01A7  083C               	movf	loc_segment_scroll@j,w
+  1551  01A8  00B6               	movwf	??_loc_segment_scroll+2
+  1552  01A9  3001               	movlw	1
+  1553  01AA                     u525:
+  1554  01AA  1003               	clrc
+  1555  01AB  0DB6               	rlf	??_loc_segment_scroll+2,f
+  1556  01AC  3EFF               	addlw	-1
+  1557  01AD  1D03               	skipz
+  1558  01AE  29AA               	goto	u525
+  1559  01AF  1003               	clrc
+  1560  01B0  0D36               	rlf	??_loc_segment_scroll+2,w
+  1561  01B1  3E48               	addlw	(low ((_loc_seq| 0+2)))& (0+255)
+  1562  01B2  0084               	movwf	4
+  1563  01B3  0835               	movf	??_loc_segment_scroll+1,w
+  1564  01B4  0080               	movwf	0
+  1565                           
+  1566                           ;main.c: 295:       if (j + 1 == nchar + 2)
+  1567  01B5  083B               	movf	loc_segment_scroll@nchar,w
+  1568  01B6  3E02               	addlw	2
+  1569  01B7  00B4               	movwf	??_loc_segment_scroll
+  1570  01B8  3000               	movlw	0
+  1571  01B9  1803               	skipnc
+  1572  01BA  3001               	movlw	1
+  1573  01BB  00B5               	movwf	??_loc_segment_scroll+1
+  1574  01BC  083C               	movf	loc_segment_scroll@j,w
+  1575  01BD  3E01               	addlw	1
+  1576  01BE  00B6               	movwf	??_loc_segment_scroll+2
+  1577  01BF  3000               	movlw	0
+  1578  01C0  1803               	skipnc
+  1579  01C1  3001               	movlw	1
+  1580  01C2  00B7               	movwf	??_loc_segment_scroll+3
+  1581  01C3  0835               	movf	??_loc_segment_scroll+1,w
+  1582  01C4  0637               	xorwf	??_loc_segment_scroll+3,w
+  1583  01C5  1D03               	skipz
+  1584  01C6  29C9               	goto	u535
+  1585  01C7  0834               	movf	??_loc_segment_scroll,w
+  1586  01C8  0636               	xorwf	??_loc_segment_scroll+2,w
+  1587  01C9                     u535:
+  1588  01C9  1D03               	skipz
+  1589  01CA  29D9               	goto	l1133
+  1590                           
+  1591                           ;main.c: 296:       {;main.c: 297:         loc_seq[j][3] = 0;
+  1592  01CB  083C               	movf	loc_segment_scroll@j,w
+  1593  01CC  00B4               	movwf	??_loc_segment_scroll
+  1594  01CD  3001               	movlw	1
+  1595  01CE                     u545:
+  1596  01CE  1003               	clrc
+  1597  01CF  0DB4               	rlf	??_loc_segment_scroll,f
+  1598  01D0  3EFF               	addlw	-1
+  1599  01D1  1D03               	skipz
+  1600  01D2  29CE               	goto	u545
+  1601  01D3  1003               	clrc
+  1602  01D4  0D34               	rlf	??_loc_segment_scroll,w
+  1603  01D5  3E49               	addlw	(low ((_loc_seq| 0+3)))& (0+255)
+  1604  01D6  0084               	movwf	4
+  1605  01D7  0180               	clrf	0
+  1606                           
+  1607                           ;main.c: 298:       }
+  1608  01D8  29F5               	goto	l1135
+  1609  01D9                     l1133:
+  1610                           
+  1611                           ;main.c: 300:       {;main.c: 301:         loc_seq[j][3] = loc_seq[j + 1][0];
+  1612  01D9  083C               	movf	loc_segment_scroll@j,w
+  1613  01DA  00B4               	movwf	??_loc_segment_scroll
+  1614  01DB  3001               	movlw	1
+  1615  01DC                     u555:
+  1616  01DC  1003               	clrc
+  1617  01DD  0DB4               	rlf	??_loc_segment_scroll,f
+  1618  01DE  3EFF               	addlw	-1
+  1619  01DF  1D03               	skipz
+  1620  01E0  29DC               	goto	u555
+  1621  01E1  1003               	clrc
+  1622  01E2  0D34               	rlf	??_loc_segment_scroll,w
+  1623  01E3  3E4A               	addlw	(low ((_loc_seq| 0+4)))& (0+255)
+  1624  01E4  0084               	movwf	4
+  1625  01E5  0800               	movf	0,w
+  1626  01E6  00B5               	movwf	??_loc_segment_scroll+1
+  1627  01E7  083C               	movf	loc_segment_scroll@j,w
+  1628  01E8  00B6               	movwf	??_loc_segment_scroll+2
+  1629  01E9  3001               	movlw	1
+  1630  01EA                     u565:
+  1631  01EA  1003               	clrc
+  1632  01EB  0DB6               	rlf	??_loc_segment_scroll+2,f
+  1633  01EC  3EFF               	addlw	-1
+  1634  01ED  1D03               	skipz
+  1635  01EE  29EA               	goto	u565
+  1636  01EF  1003               	clrc
+  1637  01F0  0D36               	rlf	??_loc_segment_scroll+2,w
+  1638  01F1  3E49               	addlw	(low ((_loc_seq| 0+3)))& (0+255)
+  1639  01F2  0084               	movwf	4
+  1640  01F3  0835               	movf	??_loc_segment_scroll+1,w
+  1641  01F4  0080               	movwf	0
+  1642  01F5                     l1135:
+  1643                           
+  1644                           ;main.c: 303:     }
+  1645  01F5  3001               	movlw	1
+  1646  01F6  00B4               	movwf	??_loc_segment_scroll
+  1647  01F7  0834               	movf	??_loc_segment_scroll,w
+  1648  01F8  07BC               	addwf	loc_segment_scroll@j,f
+  1649  01F9  294F               	goto	l1137
+  1650  01FA                     l1139:
+  1651                           
+  1652                           ;main.c: 305:     GPIO ^= (0x7F & 0x20);
+  1653  01FA  3020               	movlw	32
+  1654  01FB  1283               	bcf	3,5	;RP0=0, select bank0
+  1655  01FC  00B4               	movwf	??_loc_segment_scroll
+  1656  01FD  0834               	movf	??_loc_segment_scroll,w
+  1657  01FE  0685               	xorwf	5,f	;volatile
+  1658                           
+  1659                           ;main.c: 306:     _delay((unsigned long)((100)*(4000000/4000.0)));
+  1660  01FF  3082               	movlw	130
+  1661  0200  00B5               	movwf	??_loc_segment_scroll+1
+  1662  0201  30DD               	movlw	221
+  1663  0202  00B4               	movwf	??_loc_segment_scroll
+  1664  0203                     u707:
+  1665  0203  0BB4               	decfsz	??_loc_segment_scroll,f
+  1666  0204  2A03               	goto	u707
+  1667  0205  0BB5               	decfsz	??_loc_segment_scroll+1,f
+  1668  0206  2A03               	goto	u707
+  1669  0207  2A08               	nop2
+  1670                           
+  1671                           ;main.c: 308:   }
+  1672  0208  3001               	movlw	1
+  1673  0209  1283               	bcf	3,5	;RP0=0, select bank0
+  1674  020A  00B4               	movwf	??_loc_segment_scroll
+  1675  020B  0834               	movf	??_loc_segment_scroll,w
+  1676  020C  07BA               	addwf	loc_segment_scroll@i,f
+  1677  020D  2929               	goto	l1145
+  1678  020E                     __end_of_loc_segment_scroll:
+  1679                           
+  1680                           	psect	text5
+  1681  00B1                     __ptext5:	
+  1682 ;; *************** function _max7219_send_raw *****************
+  1683 ;; Defined at:
+  1684 ;;		line 312 in file "main.c"
+  1685 ;; Parameters:    Size  Location     Type
+  1686 ;;  data            1    wreg     PTR unsigned char 
+  1687 ;;		 -> loc_seq(20), 
+  1688 ;;  pos             1    6[BANK0 ] unsigned char 
+  1689 ;; Auto vars:     Size  Location     Type
+  1690 ;;  data            1   16[BANK0 ] PTR unsigned char 
+  1691 ;;		 -> loc_seq(20), 
+  1692 ;;  dig_incr        2   17[BANK0 ] unsigned int 
+  1693 ;;  dig             2   14[BANK0 ] unsigned int 
+  1694 ;; Return value:  Size  Location     Type
+  1695 ;;                  1    wreg      void 
+  1696 ;; Registers used:
+  1697 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  1698 ;; Tracked objects:
+  1699 ;;		On entry : 100/0
+  1700 ;;		On exit  : 100/0
+  1701 ;;		Unchanged: 0/0
+  1702 ;; Data sizes:     COMMON   BANK0
+  1703 ;;      Params:         0       1
+  1704 ;;      Locals:         0       5
+  1705 ;;      Temps:          0       7
+  1706 ;;      Totals:         0      13
+  1707 ;;Total ram usage:       13 bytes
+  1708 ;; Hardware stack levels used: 1
+  1709 ;; Hardware stack levels required when called: 1
+  1710 ;; This function calls:
+  1711 ;;		_bb_spi_write_reg16
+  1712 ;; This function is called by:
+  1713 ;;		_max7219_show_frame
+  1714 ;;		_loc_segment_scroll
+  1715 ;; This function uses a non-reentrant model
+  1716 ;;
+  1717                           
+  1718  00B1                     _max7219_send_raw:	
+  1719                           ;psect for function _max7219_send_raw
+  1720                           
+  1721                           
+  1722                           ;incstack = 0
+  1723                           ; Regs used in _max7219_send_raw: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  1724                           ;max7219_send_raw@data stored from wreg
+  1725  00B1  00B0               	movwf	max7219_send_raw@data
+  1726                           
+  1727                           ;main.c: 312: void max7219_send_raw(uint8_t *data, uint8_t pos);main.c: 313: {;main.c: 3
+      +                          14:   uint16_t dig = 0x0100;
+  1728  00B2  3000               	movlw	0
+  1729  00B3  00AE               	movwf	max7219_send_raw@dig
+  1730  00B4  3001               	movlw	1
+  1731  00B5  00AF               	movwf	max7219_send_raw@dig+1
+  1732                           
+  1733                           ;main.c: 315:   if (pos != 0)
+  1734  00B6  0826               	movf	max7219_send_raw@pos,w
+  1735  00B7  1903               	btfsc	3,2
+  1736  00B8  28BD               	goto	l1027
+  1737                           
+  1738                           ;main.c: 316:   {;main.c: 317:     dig = 0x0500;
+  1739  00B9  3000               	movlw	0
+  1740  00BA  00AE               	movwf	max7219_send_raw@dig
+  1741  00BB  3005               	movlw	5
+  1742  00BC  00AF               	movwf	max7219_send_raw@dig+1
+  1743  00BD                     l1027:
+  1744                           
+  1745                           ;main.c: 319:   for (uint16_t dig_incr = 0; dig_incr < 4; dig_incr++)
+  1746  00BD  01B1               	clrf	max7219_send_raw@dig_incr
+  1747  00BE  01B2               	clrf	max7219_send_raw@dig_incr+1
+  1748  00BF                     l1033:
+  1749                           
+  1750                           ;main.c: 320:   {;main.c: 321:     bb_spi_write_reg16((dig + (dig_incr << 8)) | (data[di
+      +                          g_incr]));
+  1751  00BF  0831               	movf	max7219_send_raw@dig_incr,w
+  1752  00C0  0730               	addwf	max7219_send_raw@data,w
+  1753  00C1  00A7               	movwf	??_max7219_send_raw
+  1754  00C2  0827               	movf	??_max7219_send_raw,w
+  1755  00C3  0084               	movwf	4
+  1756  00C4  1383               	bcf	3,7	;select IRP bank0
+  1757  00C5  0800               	movf	0,w
+  1758  00C6  00A8               	movwf	??_max7219_send_raw+1
+  1759  00C7  01A9               	clrf	??_max7219_send_raw+2
+  1760  00C8  0831               	movf	max7219_send_raw@dig_incr,w
+  1761  00C9  00AB               	movwf	??_max7219_send_raw+4
+  1762  00CA  01AA               	clrf	??_max7219_send_raw+3
+  1763  00CB  082E               	movf	max7219_send_raw@dig,w
+  1764  00CC  072A               	addwf	??_max7219_send_raw+3,w
+  1765  00CD  00AC               	movwf	??_max7219_send_raw+5
+  1766  00CE  082F               	movf	max7219_send_raw@dig+1,w
+  1767  00CF  1803               	skipnc
+  1768  00D0  0A2F               	incf	max7219_send_raw@dig+1,w
+  1769  00D1  072B               	addwf	??_max7219_send_raw+4,w
+  1770  00D2  00AD               	movwf	??_max7219_send_raw+6
+  1771  00D3  0828               	movf	??_max7219_send_raw+1,w
+  1772  00D4  042C               	iorwf	??_max7219_send_raw+5,w
+  1773  00D5  00A0               	movwf	bb_spi_write_reg16@data
+  1774  00D6  0829               	movf	??_max7219_send_raw+2,w
+  1775  00D7  042D               	iorwf	??_max7219_send_raw+6,w
+  1776  00D8  00A1               	movwf	bb_spi_write_reg16@data+1
+  1777  00D9  20E8               	fcall	_bb_spi_write_reg16
+  1778                           
+  1779                           ;main.c: 322:   }
+  1780  00DA  3001               	movlw	1
+  1781  00DB  07B1               	addwf	max7219_send_raw@dig_incr,f
+  1782  00DC  1803               	skipnc
+  1783  00DD  0AB2               	incf	max7219_send_raw@dig_incr+1,f
+  1784  00DE  3000               	movlw	0
+  1785  00DF  07B2               	addwf	max7219_send_raw@dig_incr+1,f
+  1786  00E0  3000               	movlw	0
+  1787  00E1  0232               	subwf	max7219_send_raw@dig_incr+1,w
+  1788  00E2  3004               	movlw	4
+  1789  00E3  1903               	skipnz
+  1790  00E4  0231               	subwf	max7219_send_raw@dig_incr,w
+  1791  00E5  1803               	btfsc	3,0
+  1792  00E6  0008               	return
+  1793  00E7  28BF               	goto	l1033
+  1794  00E8                     __end_of_max7219_send_raw:
+  1795                           
+  1796                           	psect	text6
+  1797  00E8                     __ptext6:	
+  1798 ;; *************** function _bb_spi_write_reg16 *****************
+  1799 ;; Defined at:
+  1800 ;;		line 397 in file "main.c"
+  1801 ;; Parameters:    Size  Location     Type
+  1802 ;;  data            2    0[BANK0 ] unsigned int 
+  1803 ;; Auto vars:     Size  Location     Type
+  1804 ;;  SPIData         2    3[BANK0 ] unsigned int 
+  1805 ;;  SPICount        1    5[BANK0 ] unsigned char 
+  1806 ;; Return value:  Size  Location     Type
+  1807 ;;                  1    wreg      void 
+  1808 ;; Registers used:
+  1809 ;;		wreg, status,2, status,0
+  1810 ;; Tracked objects:
+  1811 ;;		On entry : 100/0
+  1812 ;;		On exit  : 100/0
+  1813 ;;		Unchanged: 0/0
+  1814 ;; Data sizes:     COMMON   BANK0
+  1815 ;;      Params:         0       2
+  1816 ;;      Locals:         0       3
+  1817 ;;      Temps:          0       1
+  1818 ;;      Totals:         0       6
+  1819 ;;Total ram usage:        6 bytes
+  1820 ;; Hardware stack levels used: 1
+  1821 ;; This function calls:
+  1822 ;;		Nothing
+  1823 ;; This function is called by:
+  1824 ;;		_max7219_init
+  1825 ;;		_max7219_send_raw
+  1826 ;;		_main
+  1827 ;; This function uses a non-reentrant model
+  1828 ;;
+  1829                           
+  1830  00E8                     _bb_spi_write_reg16:	
+  1831                           ;psect for function _bb_spi_write_reg16
+  1832                           
+  1833                           
+  1834                           ;main.c: 397: void bb_spi_write_reg16(uint16_t data);main.c: 398: {;main.c: 399:   unsig
+      +                          ned char SPICount;;main.c: 400:   uint16_t SPIData = data;
+  1835                           
+  1836                           ;incstack = 0
+  1837                           ; Regs used in _bb_spi_write_reg16: [wreg+status,2+status,0]
+  1838  00E8  0821               	movf	bb_spi_write_reg16@data+1,w
+  1839  00E9  00A4               	movwf	bb_spi_write_reg16@SPIData+1
+  1840  00EA  0820               	movf	bb_spi_write_reg16@data,w
+  1841  00EB  00A3               	movwf	bb_spi_write_reg16@SPIData
+  1842                           
+  1843                           ;main.c: 402:   GPIO &= ~(0x7F & 0x04);
+  1844  00EC  30FB               	movlw	251
+  1845  00ED  00A2               	movwf	??_bb_spi_write_reg16
+  1846  00EE  0822               	movf	??_bb_spi_write_reg16,w
+  1847  00EF  0585               	andwf	5,f	;volatile
+  1848                           
+  1849                           ;main.c: 403:   GPIO &= ~(0x7F & 0x01);
+  1850  00F0  30FE               	movlw	254
+  1851  00F1  00A2               	movwf	??_bb_spi_write_reg16
+  1852  00F2  0822               	movf	??_bb_spi_write_reg16,w
+  1853  00F3  0585               	andwf	5,f	;volatile
+  1854                           
+  1855                           ;main.c: 404:   GPIO &= ~(0x7F & 0x04);
+  1856  00F4  30FB               	movlw	251
+  1857  00F5  00A2               	movwf	??_bb_spi_write_reg16
+  1858  00F6  0822               	movf	??_bb_spi_write_reg16,w
+  1859  00F7  0585               	andwf	5,f	;volatile
+  1860                           
+  1861                           ;main.c: 405:   for (SPICount = 0; SPICount < 16; SPICount++)
+  1862  00F8  01A5               	clrf	bb_spi_write_reg16@SPICount
+  1863  00F9                     l99:
+  1864                           
+  1865                           ;main.c: 406:   {;main.c: 407:     if ((SPIData & 0x8000) == 0x8000)
+  1866  00F9  1FA4               	btfss	bb_spi_write_reg16@SPIData+1,7
+  1867  00FA  28FD               	goto	l1003
+  1868                           
+  1869                           ;main.c: 408:     {;main.c: 409:       GPIO |= (0x7F & 0x02);
+  1870  00FB  1485               	bsf	5,1	;volatile
+  1871                           
+  1872                           ;main.c: 410:     }
+  1873  00FC  2901               	goto	l102
+  1874  00FD                     l1003:
+  1875                           
+  1876                           ;main.c: 412:     {;main.c: 413:       GPIO &= ~(0x7F & 0x02);
+  1877  00FD  30FD               	movlw	253
+  1878  00FE  00A2               	movwf	??_bb_spi_write_reg16
+  1879  00FF  0822               	movf	??_bb_spi_write_reg16,w
+  1880  0100  0585               	andwf	5,f	;volatile
+  1881  0101                     l102:	
+  1882                           ;main.c: 414:     }
+  1883                           
+  1884                           
+  1885                           ;main.c: 415:     GPIO &= ~(0x7F & 0x01);
+  1886  0101  30FE               	movlw	254
+  1887  0102  00A2               	movwf	??_bb_spi_write_reg16
+  1888  0103  0822               	movf	??_bb_spi_write_reg16,w
+  1889  0104  0585               	andwf	5,f	;volatile
+  1890                           
+  1891                           ;main.c: 416:     _delay((unsigned long)((18)*(4000000/4000000.0)));
+  1892  0105  3005               	movlw	5
+  1893  0106  00A2               	movwf	??_bb_spi_write_reg16
+  1894  0107                     u717:
+  1895  0107  0BA2               	decfsz	??_bb_spi_write_reg16,f
+  1896  0108  2907               	goto	u717
+  1897  0109  290A               	nop2
+  1898                           
+  1899                           ;main.c: 417:     GPIO |= (0x7F & 0x01);
+  1900  010A  1283               	bcf	3,5	;RP0=0, select bank0
+  1901  010B  1405               	bsf	5,0	;volatile
+  1902                           
+  1903                           ;main.c: 418:     _delay((unsigned long)((1)*(4000000/4000000.0)));
+  1904  010C  0000               	nop
+  1905                           
+  1906                           ;main.c: 419:     SPIData = SPIData << 1;
+  1907  010D  1003               	clrc
+  1908  010E  1283               	bcf	3,5	;RP0=0, select bank0
+  1909  010F  0D23               	rlf	bb_spi_write_reg16@SPIData,w
+  1910  0110  00A3               	movwf	bb_spi_write_reg16@SPIData
+  1911  0111  0D24               	rlf	bb_spi_write_reg16@SPIData+1,w
+  1912  0112  00A4               	movwf	bb_spi_write_reg16@SPIData+1
+  1913                           
+  1914                           ;main.c: 420:   }
+  1915  0113  3001               	movlw	1
+  1916  0114  00A2               	movwf	??_bb_spi_write_reg16
+  1917  0115  0822               	movf	??_bb_spi_write_reg16,w
+  1918  0116  07A5               	addwf	bb_spi_write_reg16@SPICount,f
+  1919  0117  3010               	movlw	16
+  1920  0118  0225               	subwf	bb_spi_write_reg16@SPICount,w
+  1921  0119  1C03               	skipc
+  1922  011A  28F9               	goto	l99
+  1923                           
+  1924                           ;main.c: 421:   GPIO &= ~(0x7F & 0x02);
+  1925  011B  30FD               	movlw	253
+  1926  011C  00A2               	movwf	??_bb_spi_write_reg16
+  1927  011D  0822               	movf	??_bb_spi_write_reg16,w
+  1928  011E  0585               	andwf	5,f	;volatile
+  1929                           
+  1930                           ;main.c: 423:   GPIO &= ~(0x7F & 0x01);
+  1931  011F  30FE               	movlw	254
+  1932  0120  00A2               	movwf	??_bb_spi_write_reg16
+  1933  0121  0822               	movf	??_bb_spi_write_reg16,w
+  1934  0122  0585               	andwf	5,f	;volatile
+  1935                           
+  1936                           ;main.c: 424:   _delay((unsigned long)((1)*(4000000/4000000.0)));
+  1937  0123  0000               	nop
+  1938                           
+  1939                           ;main.c: 425:   GPIO |= (0x7F & 0x04);
+  1940  0124  1283               	bcf	3,5	;RP0=0, select bank0
+  1941  0125  1505               	bsf	5,2	;volatile
+  1942  0126  0008               	return
+  1943  0127                     __end_of_bb_spi_write_reg16:
+  1944  005E                     btemp	set	94	;btemp
+  1945  005E                     wtemp0	set	94
+  1946                           
+  1947                           	psect	idloc
+  1948                           
+  1949                           ;Config register IDLOC0 @ 0x2000
+  1950                           ;	unspecified, using default values
+  1951  2000                     	org	8192
+  1952  2000  3FFF               	dw	16383
+  1953                           
+  1954                           ;Config register IDLOC1 @ 0x2001
+  1955                           ;	unspecified, using default values
+  1956  2001                     	org	8193
+  1957  2001  3FFF               	dw	16383
+  1958                           
+  1959                           ;Config register IDLOC2 @ 0x2002
+  1960                           ;	unspecified, using default values
+  1961  2002                     	org	8194
+  1962  2002  3FFF               	dw	16383
+  1963                           
+  1964                           ;Config register IDLOC3 @ 0x2003
+  1965                           ;	unspecified, using default values
+  1966  2003                     	org	8195
+  1967  2003  3FFF               	dw	16383
+  1968                           
+  1969                           	psect	config
+  1970                           
+  1971                           ;Config register CONFIG @ 0x2007
+  1972                           ;	Oscillator Selection bits
+  1973                           ;	FOSC = INTRCIO, INTOSC oscillator: I/O function on GP4/OSC2/CLKOUT pin, I/O function o
+      +                          n GP5/OSC1/CLKIN
+  1974                           ;	Watchdog Timer Enable bit
+  1975                           ;	WDTE = OFF, WDT disabled
+  1976                           ;	Power-Up Timer Enable bit
+  1977                           ;	PWRTE = ON, PWRT enabled
+  1978                           ;	GP3/MCLR pin function select
+  1979                           ;	MCLRE = OFF, GP3/MCLR pin function is digital I/O, MCLR internally tied to VDD
+  1980                           ;	Brown-out Detect Enable bit
+  1981                           ;	BOREN = OFF, BOD disabled
+  1982                           ;	Code Protection bit
+  1983                           ;	CP = OFF, Program Memory code protection is disabled
+  1984                           ;	Data Code Protection bit
+  1985                           ;	CPD = OFF, Data memory code protection is disabled
+  1986  2007                     	org	8199
+  1987  2007  3184               	dw	12676
+
+Data Sizes:
+    Strings     0
+    Constant    82
+    Data        0
+    BSS         20
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON            0      0       0
+    BANK0            62     38      58
+
+Pointer List with Targets:
+
+    max7219_send_raw@data	PTR unsigned char  size(1) Largest target is 20
+		 -> loc_seq(BANK0[20]), 
+
+    max7219_prepare_string@p	PTR unsigned char  size(2) Largest target is 10
+		 -> main@animation(CODE[10]), main@sequence(BANK0[4]), 
+
+    max7219_prepare_string@buff_pt	PTR unsigned char  size(1) Largest target is 68
+		 -> max7219_custom_map_dotmtx_half(CODE[68]), 
+
+
+Critical Paths under _main in COMMON
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    _main->_loc_segment_scroll
+    _max7219_show_frame->_max7219_send_raw
+    _max7219_init->_bb_spi_write_reg16
+    _loc_segment_scroll->_max7219_send_raw
+    _max7219_send_raw->_bb_spi_write_reg16
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 9     9      0    6237
+                                             29 BANK0      9     9      0
+                 _bb_spi_write_reg16
+                 _loc_segment_scroll
+                       _max7219_init
+             _max7219_prepare_string
+                 _max7219_show_frame
+ ---------------------------------------------------------------------------------
+ (1) _max7219_show_frame                                   0     0      0    1240
+                   _max7219_send_raw
+ ---------------------------------------------------------------------------------
+ (2) _max7219_prepare_string                              14    10      4    1332
+                                              0 BANK0     14    10      4
+ ---------------------------------------------------------------------------------
+ (1) _max7219_init                                         2     2      0     647
+                 _bb_spi_write_reg16
+ ---------------------------------------------------------------------------------
+ (1) _loc_segment_scroll                                  10     9      1    1748
+                                             19 BANK0     10     9      1
+                   _max7219_send_raw
+ ---------------------------------------------------------------------------------
+ (2) _max7219_send_raw                                    13    12      1    1240
+                                              6 BANK0     13    12      1
+                 _bb_spi_write_reg16
+ ---------------------------------------------------------------------------------
+ (3) _bb_spi_write_reg16                                   6     4      2     646
+                                              0 BANK0      6     4      2
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 3
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _bb_spi_write_reg16
+   _loc_segment_scroll
+     _max7219_send_raw
+       _bb_spi_write_reg16
+   _max7219_init
+     _bb_spi_write_reg16
+   _max7219_prepare_string
+   _max7219_show_frame
+     _max7219_send_raw
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMMON            0      0       0       0        0.0%
+EEDATA              80      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+COMMON               0      0       0       1        0.0%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+STACK                0      0       0       2        0.0%
+BITBANK0            3E      0       0       3        0.0%
+BANK0               3E     26      3A       4       93.5%
+ABS                  0      0      3A       5        0.0%
+DATA                 0      0      3A       6        0.0%
+
+
+Microchip Technology PIC Macro Assembler V2.36 build 20220127204148 
+Symbol Table                                                                                   Wed Sep 14 23:33:39 2022
+
+                                     pc 0002                                      l99 00F9  
+                                    fsr 0004                    __end_of_max7219_init 00B1  
+                                   l102 0101                                     u415 033E  
+                                   u505 018E                                     u425 0352  
+                                   u515 019C                                     u435 0365  
+                                   u525 01AA                                     u445 0378  
+                                   u535 01C9                                     u455 0393  
+                                   u545 01CE                                     u707 0203  
+                                   u555 01DC                                     u475 0163  
+                                   u717 0107                                     u565 01EA  
+                                   u485 0172                                     u575 015D  
+                                   u495 0180                                     u585 0145  
+                                   u657 025B                                     u667 0283  
+                                   u677 02B2                                     u687 02CE  
+                                   u697 02E7                                     fsr0 0004  
+                                   indf 0000                                    l1003 00FD  
+                                  l1101 0333                                    l1111 0387  
+                                  l1033 00BF                                    l1113 03EB  
+                                  l1027 00BD                                    l1133 01D9  
+                                  l1221 02A7                                    l1135 01F5  
+                                  l1071 0317                                    l1063 030F  
+                                  l1215 02A6                                    l1151 0217  
+                                  l1137 014F                                    l1145 0129  
+                                  l1081 0321                                    l1073 0319  
+                                  l1065 0311                                    l1241 02C4  
+                                  l1139 01FA                                    l1091 032B  
+                                  l1083 0323                                    l1075 031B  
+                                  l1067 0313                                    l1059 0308  
+                                  l1227 02A8                                    l1093 032D  
+                                  l1085 0325                                    l1077 031D  
+                                  l1069 0315                                    l1095 032F  
+                                  l1087 0327                                    l1079 031F  
+                                  l1183 0264                                    l1089 0329  
+                                  l1189 0265                                    l1279 03B5  
+                                  _GPIO 0005                    max7219_send_raw@data 0030  
+            __end_of_max7219_show_frame 0094                                    _main 020E  
+                                  btemp 005E                                    start 0000  
+                      _max7219_send_raw 00B1                                   ?_main 0020  
+                                 _CMCON 0019                                   main@i 0045  
+                                 main@j 0044                            main@sequence 0040  
+                                 pclath 000A                                   status 0003  
+                                 wtemp0 005E                ??_max7219_prepare_string 0024  
+                       __initialization 03F8                            __end_of_main 02F8  
+                                ??_main 003D              bb_spi_write_reg16@SPICount 0025  
+                         main@animation 0059                      _bb_spi_write_reg16 00E8  
+                   ?_bb_spi_write_reg16 0020                                  _TRISIO 0085  
+               loc_segment_scroll@nchar 003B                    ??_bb_spi_write_reg16 0022  
+               __end_of__initialization 03FD                            _max7219_init 009C  
+                        __pcstackCOMMON 0000                __end_of_max7219_send_raw 00E8  
+                            __pbssBANK0 0046                              __pmaintext 020E  
+            loc_segment_scroll@not_last 0033                      _max7219_show_frame 008C  
+                _max7219_prepare_string 02F8                     ?_max7219_show_frame 0020  
+                            __stringtab 0001   __end_of_max7219_blank_map_dotmtx_half 0015  
+         _max7219_blank_map_dotmtx_half 0011                    ??_max7219_show_frame 0000  
+                               __ptext1 008C                                 __ptext2 02F8  
+                               __ptext3 009C                                 __ptext4 0127  
+                               __ptext5 00B1                                 __ptext6 00E8  
+                               _loc_seq 0046                                 clrloop0 0095  
+                  end_of_initialization 03FD                     max7219_send_raw@dig 002E  
+                   max7219_send_raw@pos 0026              __end_of_loc_segment_scroll 020E  
+                   start_initialization 03F8                     loc_segment_scroll@i 003A  
+                   loc_segment_scroll@j 003C                       ?_max7219_send_raw 0026  
+                    ??_max7219_send_raw 0027                 ?_max7219_prepare_string 0020  
+                             ___latbits 0000                           __pcstackBANK0 0020  
+                bb_spi_write_reg16@data 0020          __end_of_max7219_prepare_string 03F8  
+                 __end_ofmain@animation 0063                               __pstrings 0001  
+          max7219_prepare_string@offset 002B  __end_of_max7219_custom_map_dotmtx_half 0059  
+        _max7219_custom_map_dotmtx_half 0015                               clear_ram0 0094  
+              max7219_send_raw@dig_incr 0031                             __stringbase 0010  
+             bb_spi_write_reg16@SPIData 0023                           ?_max7219_init 0020  
+                    __end_of__stringtab 0011                      _loc_segment_scroll 0127  
+                   ?_loc_segment_scroll 0033                          ??_max7219_init 0000  
+                  ??_loc_segment_scroll 0034              __end_of_bb_spi_write_reg16 0127  
+                             stringcode 000B           max7219_prepare_string@isFirst 0023  
+         max7219_prepare_string@buff_pt 002D                                stringdir 000B  
+                              stringtab 0001                 max7219_prepare_string@i 002C  
+               max7219_prepare_string@n 0022                 max7219_prepare_string@p 0020  

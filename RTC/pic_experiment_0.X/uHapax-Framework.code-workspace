@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "..\\..\\..\\..\\Dropbox\\Firmwares\\Atmel\\FullEmulated_RTC\\FullEmulated_RTC"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"uconf.h": "c"
+		}
+	}
+}
